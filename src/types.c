@@ -3,6 +3,16 @@
 #include <math.h>
 #include <stdio.h>
 
+void vec3_normalize(vec3 v) {
+	double norm = vec3_norm(v);
+	vec3_set(
+		v,
+		v[X]/norm,
+		v[Y]/norm,
+		v[Z]/norm
+	);
+}
+
 void mat4_translation(mat4 A, double tx, double ty, double tz) {
 	mat4_set_identity(A);
 	A[a03] = tx;
@@ -91,6 +101,7 @@ void mat4_product_vec3(mat4 A, vec3 V, vec3 W) {
 	W[0] = x;
 	W[1] = y;
 	W[2] = z;
+	vec3_normalize(W);
 }
 
 void mat4_product_point3(mat4 A, point3 P, point3 Q) {

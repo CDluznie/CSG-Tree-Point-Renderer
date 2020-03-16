@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
-#include "../include/point_cloud.h"
+#include "point_cloud.h"
 
 
 static Tree tree_allocate(Shape * shape, Operator op, Tree left, Tree right) {

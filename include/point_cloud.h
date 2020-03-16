@@ -9,24 +9,9 @@
 #include "types.h"
 
 /**
- * \brief Ambiant light of a point in a point cloud
+ * \brief Size of a point in the point cloud rendering
  */ 
-#define AMBI_LIGHT (0.25)
-
-/**
- * \brief Diffuse light of a point in a point cloud
- */ 
-#define DIFF_LIGHT (0.25)
-
-/**
- * \brief Specular light of a point in a point cloud
- */ 
-#define SPEC_LIGHT (0.25)
-
-/**
- * \brief Specularity coefficient of a point in a point cloud
- */ 
-#define SHINING (0.25)
+#define POINT_SIZE (2)
 
 /**
  * \brief Structure defining a point cloud

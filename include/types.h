@@ -6,6 +6,7 @@
 #ifndef __TYPES__H__
 #define __TYPES__H__
 
+#include <math.h>
 #include <string.h>
 
 typedef float color4[4];
@@ -106,9 +107,9 @@ typedef double mat4[16];
                                   (result)[1]=(u)[2]*(v)[0]-(u)[0]*(v)[2],\
 								  (result)[2]=(u)[0]*(v)[1]-(u)[1]*(v)[0])
 
-/*include math :*/
-/* TODO vec3_norm */
+#define vec3_norm(v) (sqrt(vec3_dot(v,v)))
 
+void vec3_normalize(vec3 v);
 
 
 #define mat4_identity {1.,0.,0.,0.,\

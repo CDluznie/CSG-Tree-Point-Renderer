@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <assert.h>
-#include "../include/point_cloud.h"
+#include "point_cloud.h"
 
 
 int shape_is_valid(const Shape *shape) {

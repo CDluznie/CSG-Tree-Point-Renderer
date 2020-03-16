@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <GL/gl.h>
 #include <assert.h>
-#include "../include/point_cloud.h"
+#include "point_cloud.h"
 
 int point_cloud_is_valid(const PointCloud *point_cloud) {
 	assert(NULL != point_cloud);
@@ -35,18 +35,12 @@ PointCloud * point_cloud_allocate(point3 *vrtx, vec3 *norm, color4 *colors, int 
 	return point_cloud;
 }
 
-void set_material(color4 color, float ambi, float diff, float spec, float shine) {
-	glColor4fv(color);
-	/*
-	GLfloat ambiant[4] = {col[0]*ambi, col[1]*ambi, col[2]*ambi, col[3]};
-	GLfloat diffuse[4] = {diff, diff, diff, 1.0};
-	GLfloat specular[4] = {spec, spec, spec, 1.0};
-	GLfloat shininess = shine;
-	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, ambiant);
-	glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, diffuse);
-	glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, specular);
-	glMaterialf(GL_FRONT_AND_BACK, GL_SHININESS, shininess);
-	*/
+void set_material(color4 color) {
+	GLfloat specular[] = {0.6, 0.6, 0.6, 1};
+	GLfloat shininess = 30;
+	glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, color);
+	glMaterialfv(GL_FRONT, GL_SPECULAR, specular);
+	glMaterialf(GL_FRONT, GL_SHININESS, shininess);
 }
 
 void point_cloud_draw(const PointCloud *point_cloud) {
@@ -56,16 +50,18 @@ void point_cloud_draw(const PointCloud *point_cloud) {
 	vec3 *n = point_cloud->norm;
 	color4 *c = point_cloud->colors;
 	point3 *max = point_cloud->vrtx + point_cloud->size;
-	glPointSize(2);
+	glPointSize(POINT_SIZE);
 	glBegin(GL_POINTS);
+	glEnable(GL_COLOR_MATERIAL);
 	while(v < max) {
-		set_material((*c), AMBI_LIGHT, DIFF_LIGHT, SPEC_LIGHT, SHINING);
+		set_material((*c));
 		glNormal3dv(*n);
 		glVertex3dv(*v);
 		n++;
 		v++;
 		c++;
 	}
+	glDisable(GL_COLOR_MATERIAL);
     glEnd();
 } 
 
