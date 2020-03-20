@@ -53,12 +53,12 @@ Tree tree_allocate_node (Operator op, Tree left, Tree right) {
 static void tree_transform(Tree tree, mat4 transformation, mat4 inv_transformation, mat4 norm_transformation) {
 	assert(NULL != tree);
 	assert(tree_is_valid(tree));
-	mat4_product_mat4(tree->transformations, transformation, tree->transformations);
-	mat4_product_mat4(inv_transformation, tree->inv_transformations, tree->inv_transformations);
-	mat4_product_mat4(tree->norm_transformations, norm_transformation, tree->norm_transformations);
+	mat4_product_mat4(tree->transformations, tree->transformations, transformation);
+	mat4_product_mat4(tree->inv_transformations, inv_transformation, tree->inv_transformations);
+	mat4_product_mat4(tree->norm_transformations, tree->norm_transformations, norm_transformation);
 }  
 
-void tree_translation (Tree tree, double x, double y, double z) {
+void tree_translation(Tree tree, double x, double y, double z) {
 	assert(NULL != tree);
 	assert(tree_is_valid(tree));
 	mat4 translation, inv_translation;
@@ -115,7 +115,7 @@ static int tree_contains_point (Tree tree, point3 *point) {
 	assert(tree_is_valid(tree));
 	assert(NULL != point);
 	point3 p;
-	mat4_product_point3(tree->inv_transformations, *point, p);
+	mat4_product_point3(p, tree->inv_transformations, *point);
 	if(tree->shape != NULL){
 		return shape_contains_point(tree->shape, (const point3 *) &p);
 	}
@@ -159,13 +159,13 @@ static PointCloud * op_identity(mat4 transformations, mat4 norm_transformations,
 	}
 	int i;
 	for(i = 0; i < a->size; i++){
-		mat4_product_point3(transformations, a->vrtx[i], vrtx[i]);
-		mat4_product_vec3(norm_transformations, a->norm[i], norm[i]);
+		mat4_product_point3(vrtx[i], transformations, a->vrtx[i]);
+		mat4_product_vec3(norm[i], norm_transformations, a->norm[i]);
 		color4_copy(colors[i], a->colors[i]);
 	}
 	for(i = 0; i < b->size; i++){
-		mat4_product_point3(transformations, b->vrtx[i], vrtx[i + a->size]);
-		mat4_product_vec3(norm_transformations, b->norm[i], norm[i + a->size]);
+		mat4_product_point3(vrtx[i + a->size], transformations, b->vrtx[i]);
+		mat4_product_vec3(norm[i + a->size], norm_transformations, b->norm[i]);
 		color4_copy(colors[(i+a->size)], b->colors[i]);
 	}
 	point_cloud_free(&a);
@@ -200,16 +200,16 @@ static PointCloud * op_union(mat4 transformations, mat4 norm_transformations, Tr
 	int i;
 	for(i = 0; i < a->size; i++){
 		if(!tree_contains_point(right, a->vrtx + i)) {
-			mat4_product_point3(transformations, a->vrtx[i], vrtx[size]);
-			mat4_product_vec3(norm_transformations, a->norm[i], norm[size]);
+			mat4_product_point3(vrtx[size], transformations, a->vrtx[i]);
+			mat4_product_vec3(norm[size], norm_transformations, a->norm[i]);
 			color4_copy(colors[size], a->colors[i]);
 			size++;
 		}
 	}
 	for(i = 0; i < b->size; i++){
 		if(!tree_contains_point(left, b->vrtx + i)) {
-			mat4_product_point3(transformations, b->vrtx[i], vrtx[size]);
-			mat4_product_vec3(norm_transformations, b->norm[i], norm[size]);
+			mat4_product_point3(vrtx[size], transformations, b->vrtx[i]);
+			mat4_product_vec3(norm[size], norm_transformations, b->norm[i]);
 			color4_copy(colors[size], b->colors[i]);
 			size++;
 		} 
@@ -246,16 +246,16 @@ static PointCloud * op_intersection(mat4 transformations, mat4 norm_transformati
 	int i;
 	for(i = 0; i < a->size; i++){
 		if(tree_contains_point(right, a->vrtx + i)) {
-			mat4_product_point3(transformations, a->vrtx[i], vrtx[size]);
-			mat4_product_vec3(norm_transformations, a->norm[i], norm[size]);
+			mat4_product_point3(vrtx[size], transformations, a->vrtx[i]);
+			mat4_product_vec3(norm[size], norm_transformations, a->norm[i]);
 			color4_copy(colors[size], a->colors[i]);
 			size++;
 		}
 	}
 	for(i = 0; i < b->size; i++){
 		if(tree_contains_point(left, b->vrtx + i)) {
-			mat4_product_point3(transformations, b->vrtx[i], vrtx[size]);
-			mat4_product_vec3(norm_transformations, b->norm[i], norm[size]);
+			mat4_product_point3(vrtx[size], transformations, b->vrtx[i]);
+			mat4_product_vec3(norm[size], norm_transformations, b->norm[i]);
 			color4_copy(colors[size], b->colors[i]);
 			size++;
 		} 
@@ -292,17 +292,22 @@ static PointCloud * op_difference(mat4 transformations, mat4 norm_transformation
 	int i;
 	for(i = 0; i < a->size; i++){
 		if(!tree_contains_point(right, a->vrtx + i)) {
-			mat4_product_point3(transformations, a->vrtx[i], vrtx[size]);
-			mat4_product_vec3(norm_transformations, a->norm[i], norm[size]);
+			mat4_product_point3(vrtx[size], transformations, a->vrtx[i]);
+			mat4_product_vec3(norm[size], norm_transformations, a->norm[i]);
 			color4_copy(colors[size], a->colors[i]);
 			size++;
 		}
 	}
 	for(i = 0; i < b->size; i++){
 		if(tree_contains_point(left, b->vrtx + i)) {
-			mat4_product_point3(transformations, b->vrtx[i], vrtx[size]);
-			vec3_set(norm[size], -(b->norm[i][X]), -(b->norm[i][Y]), -(b->norm[i][Z]));
-			mat4_product_vec3(norm_transformations, norm[size], norm[size]);
+			mat4_product_point3(vrtx[size], transformations, b->vrtx[i]);
+			vec3_set(
+				norm[size],
+				-(vec3_get_x(b->norm[i])),
+				-(vec3_get_y(b->norm[i])),
+				-(vec3_get_z(b->norm[i]))
+			);
+			mat4_product_vec3(norm[size], norm_transformations, norm[size]);
 			color4_copy(colors[size], b->colors[i]);
 			size++;
 		} 

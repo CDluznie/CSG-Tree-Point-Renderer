@@ -51,9 +51,9 @@ static color4 * n_color (int size, const color4 color) {
 	return colors;
 }
 
-static int contains_sphere(double *args, point3 *point){
+static int contains_sphere(double *args, point3 *point) {
 	assert(NULL != point);
-	return SQUARE((*point)[X]) + SQUARE((*point)[Y]) + SQUARE((*point)[Z]) <= 1.;	
+	return SQUARE(point3_get_x((*point))) + SQUARE(point3_get_y((*point))) + SQUARE(point3_get_z((*point))) <= 1.;
 }
  
 static void min_max(double *a, double *b, double *c) {
@@ -78,6 +78,9 @@ static void min_max(double *a, double *b, double *c) {
 	}	
 } 
  
+/*
+ * TODO CHANGE RANDD
+ */
 double randd(double min, double max) {
     int r = rand();
     double delta = max - min;
@@ -117,11 +120,10 @@ static PointCloud * point_cloud_sphere(int density, color4 color, mat4 transform
 		/*double phi = (g3x_Rand_Delta(half_pi,half_pi) + g3x_Rand_Delta(half_pi,half_pi))/2.;*/
 		double phi = randd(0, PI) + randd(0, PI)/2;
 		double sin_phi = sin(phi);
-		(*n)[X] = (*v)[X] = cos(alpha)*sin_phi;
-		(*n)[Y] = (*v)[Y] = sin(alpha)*sin_phi;
-		(*n)[Z] = (*v)[Z] = cos(phi);
-		mat4_product_point3(transformations, *v, *v);
-		mat4_product_vec3(norm_transformations, *n, *n);
+		vec3_set((*n), cos(alpha)*sin_phi, sin(alpha)*sin_phi, cos(phi));
+		point3_set((*v), cos(alpha)*sin_phi, sin(alpha)*sin_phi, cos(phi));
+		mat4_product_point3((*v), transformations, (*v));
+		mat4_product_vec3((*n), norm_transformations, (*n));
 		n++;
 		v++;
 	}
@@ -134,7 +136,9 @@ Shape * shape_sphere(color4 color) {
 
 static int contains_cube(double *args, point3 *point) {
 	assert(NULL != point);
-	double x = (*point)[X], y = (*point)[Y], z = (*point)[Z];
+	double x = point3_get_x((*point));
+	double y = point3_get_y((*point));
+	double z = point3_get_z((*point));
 	if (x < 0.) 
 		x = -x;
 	if (y < 0.) 
@@ -170,11 +174,10 @@ static PointCloud * point_cloud_cube(int density, color4 color, mat4 transformat
 			x = randd(-1, 1);
 			/*y = g3x_Rand_Delta(0,1);*/
 			y = randd(-1, 1);
-			(*n)[X] = 0; (*v)[X] = x;
-			(*n)[Y] = 0; (*v)[Y] = y;
-			(*n)[Z] = (*v)[Z] = z;
-			mat4_product_point3(transformations, *v, *v); 
-			mat4_product_vec3(norm_transformations, *n, *n);
+			vec3_set((*n), 0, 0, z);
+			point3_set((*v), x, y, z);
+			mat4_product_point3((*v), transformations, (*v));
+			mat4_product_vec3((*n), norm_transformations, (*n));
 			n++;
 			v++;
 		}
@@ -185,11 +188,10 @@ static PointCloud * point_cloud_cube(int density, color4 color, mat4 transformat
 			z = g3x_Rand_Delta(0,1);*/
 			x = randd(-1, 1);
 			z = randd(-1, 1);
-			(*n)[X] = 0; (*v)[X] = x;
-			(*n)[Y] = (*v)[Y] = y;
-			(*n)[Z] = 0; (*v)[Z] = z;
-			mat4_product_point3(transformations, *v, *v); 
-			mat4_product_vec3(norm_transformations, *n, *n);
+			vec3_set((*n), 0, y, 0);
+			point3_set((*v), x, y, z);
+			mat4_product_point3((*v), transformations, (*v));
+			mat4_product_vec3((*n), norm_transformations, (*n));
 			n++;
 			v++;
 		}
@@ -200,11 +202,10 @@ static PointCloud * point_cloud_cube(int density, color4 color, mat4 transformat
 			z = g3x_Rand_Delta(0,1);*/
 			y = randd(-1, 1);
 			z = randd(-1, 1);
-			(*n)[X] = (*v)[X] = x;
-			(*n)[Y] = 0; (*v)[Y] = y;
-			(*n)[Z] = 0; (*v)[Z] = z;
-			mat4_product_point3(transformations, *v, *v); 
-			mat4_product_vec3(norm_transformations, *n, *n);
+			vec3_set((*n), x, 0, 0);
+			point3_set((*v), x, y, z);
+			mat4_product_point3((*v), transformations, (*v));
+			mat4_product_vec3((*n), norm_transformations, (*n));
 			n++;
 			v++;
 		}
@@ -218,10 +219,10 @@ Shape * shape_cube(color4 color) {
 
 static int contains_cylinder(double *args, point3 *point){
 	assert(NULL != point);
-	double z = (*point)[Z];
+	double z = point3_get_z((*point));
 	if (z < 0.)
 		z = -z;
-	return (z <= 1.) && (SQUARE((*point)[X]) + SQUARE((*point)[Y]) <= 1.);
+	return (z <= 1.) && (SQUARE(point3_get_x((*point))) + SQUARE(point3_get_y((*point))) <= 1.);
 }
 
 static PointCloud * point_cloud_cylinder(int density, color4 color, mat4 transformations, mat4 norm_transformations, double x_scale, double y_scale, double z_scale, double *args) {
@@ -248,11 +249,10 @@ static PointCloud * point_cloud_cylinder(int density, color4 color, mat4 transfo
 		z = randd(-1, 1);
 		/*double alpha = g3x_Rand_Delta(PI,PI);*/
 		double alpha = randd(0, 2*PI);
-		(*n)[X] = (*v)[X] = cos(alpha);
-		(*n)[Y] = (*v)[Y] = sin(alpha);
-		(*n)[Z] = 0; (*v)[Z] = z;
-		mat4_product_point3(transformations, *v, *v); 
-		mat4_product_vec3(norm_transformations, *n, *n);
+		vec3_set((*n), cos(alpha), sin(alpha), 0);
+		point3_set((*v), cos(alpha), sin(alpha), z);
+		mat4_product_point3((*v), transformations, (*v));
+		mat4_product_vec3((*n), norm_transformations, (*n));
 		n++;
 		v++;
 	}
@@ -265,11 +265,10 @@ static PointCloud * point_cloud_cylinder(int density, color4 color, mat4 transfo
 			double y = randd(-1, 1);
 			if (x*x + y*y > 1)
 				continue;
-			(*n)[X] = 0; (*v)[X] = x;
-			(*n)[Y] = 0; (*v)[Y] = y;
-			(*n)[Z] = (*v)[Z] = z;
-			mat4_product_point3(transformations, *v, *v); 
-			mat4_product_vec3(norm_transformations, *n, *n);
+			vec3_set((*n), 0, 0, z);
+			point3_set((*v), x, y, z);
+			mat4_product_point3((*v), transformations, (*v));
+			mat4_product_vec3((*n), norm_transformations, (*n));
 			n++;
 			v++;
 			i++;
@@ -284,11 +283,11 @@ Shape * shape_cylinder(color4 color) {
 
 static int contains_cone(double *args, point3 *point){
 	assert(NULL != point);
-	double z = (*point)[Z];
+	double z = point3_get_z((*point));
 	if (z < 0.)
 		z = -z;
-	double rz = 1 - (*point)[Z];
-	return (z <= 1.) && (SQUARE((*point)[X]) + SQUARE((*point)[Y]) <= SQUARE(rz)/4.);
+	double rz = 1 - point3_get_z((*point));
+	return (z <= 1.) && (SQUARE(point3_get_x((*point))) + SQUARE(point3_get_y((*point))) <= SQUARE(rz)/4.);
 }
 
 static PointCloud * point_cloud_cone(int density, color4 color, mat4 transformations, mat4 norm_transformations, double x_scale, double y_scale, double z_scale, double *args) {
@@ -319,11 +318,10 @@ static PointCloud * point_cloud_cone(int density, color4 color, mat4 transformat
 		double rz = (1-z)/2;
 		double cos_alpha = cos(alpha);
 		double sin_alpha = sin(alpha);
-		(*n)[X] = cos_alpha; (*v)[X] = rz*cos_alpha;
-		(*n)[Y] = sin_alpha; (*v)[Y] = rz*sin_alpha;
-		(*n)[Z] = 1; (*v)[Z] = z;
-		mat4_product_point3(transformations, *v, *v); 
-		mat4_product_vec3(norm_transformations, *n, *n);
+		vec3_set((*n), cos_alpha, sin_alpha, 1);
+		point3_set((*v), rz*cos_alpha, rz*sin_alpha, z);
+		mat4_product_point3((*v), transformations, (*v));
+		mat4_product_vec3((*n), norm_transformations, (*n));
 		n++;
 		v++;
 	}
@@ -335,11 +333,10 @@ static PointCloud * point_cloud_cone(int density, color4 color, mat4 transformat
 		double y = randd(-1, 1);
 		if (x*x + y*y > 1)
 			continue;
-		(*n)[X] = 0; (*v)[X] = x;
-		(*n)[Y] = 0; (*v)[Y] = y;
-		(*n)[Z] = (*v)[Z] = -1;
-		mat4_product_point3(transformations, *v, *v);
-		mat4_product_vec3(norm_transformations, *n, *n);
+		vec3_set((*n), 0, 0, -1);
+		point3_set((*v), x, y, -1);
+		mat4_product_point3((*v), transformations, (*v));
+		mat4_product_vec3((*n), norm_transformations, (*n));
 		n++;
 		v++;
 		i++;
@@ -355,8 +352,8 @@ static int contains_torus(double *args, point3 *point) {
 	assert(NULL != point);
 	assert(NULL != args);
 	double r = args[0];
-	double sqrx_sqry = SQUARE((*point)[X]) + SQUARE((*point)[Y]);
-	double s = (sqrx_sqry + SQUARE((*point)[Z]) + 1 - SQUARE(r));
+	double sqrx_sqry = SQUARE(point3_get_x((*point))) + SQUARE(point3_get_y((*point)));
+	double s = (sqrx_sqry + SQUARE(point3_get_z((*point))) + 1 - SQUARE(r));
 	return SQUARE(s) <= 4*sqrx_sqry;
 }
 
@@ -389,12 +386,11 @@ static PointCloud * point_cloud_torus(int density, color4 color, mat4 transforma
 		double sin_phi = sin(phi);
 		double r_cos_phi = 1 + r*cos_phi;
 		double cos_alpha = cos(alpha); 
-		double sin_alpha = sin(alpha); 
-		(*n)[X] = cos_phi*cos_alpha; (*v)[X] = r_cos_phi*cos_alpha;
-		(*n)[Y] = cos_phi*sin_alpha; (*v)[Y] = r_cos_phi*sin_alpha;
-		(*n)[Z] = sin_phi; (*v)[Z] = r*sin_phi;
-		mat4_product_point3(transformations, *v, *v); 
-		mat4_product_vec3(norm_transformations, *n, *n);
+		double sin_alpha = sin(alpha);
+		vec3_set((*n), cos_phi*cos_alpha, cos_phi*sin_alpha, sin_phi);
+		point3_set((*v), r_cos_phi*cos_alpha, r_cos_phi*sin_alpha, r*sin_phi);
+		mat4_product_point3((*v), transformations, (*v));
+		mat4_product_vec3((*n), norm_transformations, (*n));
 		n++;
 		v++;
 	}
