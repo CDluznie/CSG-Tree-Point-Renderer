@@ -1,0 +1,4 @@
+<map id="Node" name="Node">
+<area shape="rect" id="node2" href="$struct_shape.html" title="Structure defining a canonical shape. " alt="" coords="19,95,78,121"/>
+<area shape="rect" id="node3" href="$struct_point_cloud.html" title="Structure defining a point cloud. " alt="" coords="5,5,92,32"/>
+</map>

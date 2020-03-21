@@ -34,7 +34,7 @@ typedef enum {
  * If the tree is a leaf, it is defined by a canonical form.
  * If the tree is an internal node, it is defined by a combination operator, a left CSG tree child and a right CSG tree child.
  * In both cases, the tree also contains a points transformation matrix, an inverse points transformation matrix, and a normals transformation matrix.
- */ 
+ */
 typedef struct Node {
 	Operator op; /**< Combination operator */
 	Shape* shape; /**< Canonical shape */
@@ -125,7 +125,7 @@ PointCloud * tree_to_point_cloud(Tree tree, int density);
  * 
  * \param z Scaling factor on \e z axis \n
  * Must be strictly positive
- */ 
+ */
 void tree_homothety (Tree tree, double x, double y, double z);
 
 /**

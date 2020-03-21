@@ -2,6 +2,7 @@
 #include "parser.h"
 #include "point_cloud.h"
 #include <GL/glut.h>
+#include <time.h>
 
 #define WINDOW_WIDTH (768)
 #define WINDOW_HEIGHT (512)
@@ -86,6 +87,8 @@ int main (int argc, char *argv[]) {
 	#ifndef NDEBUG
 	printf("Debug mode\n");
 	#endif
+
+	srand(time(NULL));
 
 	FILE *f = NULL;
 	if (NULL == (f = fopen(filescene, "r"))) {

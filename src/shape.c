@@ -8,6 +8,10 @@
 #include "point_cloud.h"
 
 
+double random_double(double min, double max) {
+    return (max - min) * ((double) rand() / (double) RAND_MAX) + min;
+}
+
 int shape_is_valid(const Shape *shape) {
 	assert(NULL != shape);
 	if (shape->type < 0 || shape->type >= NumberShapeType)
@@ -77,16 +81,6 @@ static void min_max(double *a, double *b, double *c) {
 		*c = tmp;
 	}	
 } 
- 
-/*
- * TODO CHANGE RANDD
- */
-double randd(double min, double max) {
-    int r = rand();
-    double delta = max - min;
-    double tmp = r / (RAND_MAX + 1.0); /* generate up to but excluding max */
-    return tmp * delta + min;
-}
 
 static PointCloud * point_cloud_sphere(int density, color4 color, mat4 transformations, mat4 norm_transformations, double x_scale, double y_scale, double z_scale, double *args) {
 	assert(density > 0);
@@ -115,10 +109,8 @@ static PointCloud * point_cloud_sphere(int density, color4 color, mat4 transform
 	vec3 *n = norm;
 	double half_pi = PI/2;
 	for (i = 0; i < size; i++) {
-		/*double alpha = g3x_Rand_Delta(PI,PI);*/
-		double alpha = randd(0, 2*PI);
-		/*double phi = (g3x_Rand_Delta(half_pi,half_pi) + g3x_Rand_Delta(half_pi,half_pi))/2.;*/
-		double phi = randd(0, PI) + randd(0, PI)/2;
+		double alpha = random_double(0, 2*PI);
+		double phi = random_double(0, PI) + random_double(0, PI)/2;
 		double sin_phi = sin(phi);
 		vec3_set((*n), cos(alpha)*sin_phi, sin(alpha)*sin_phi, cos(phi));
 		point3_set((*v), cos(alpha)*sin_phi, sin(alpha)*sin_phi, cos(phi));
@@ -170,10 +162,8 @@ static PointCloud * point_cloud_cube(int density, color4 color, mat4 transformat
 	vec3 *n = norm;
 	for (i = 0; i < zface; i++) {
 		for (z = -1; z <= 1; z+=2) {
-			/*x = g3x_Rand_Delta(0,1);*/
-			x = randd(-1, 1);
-			/*y = g3x_Rand_Delta(0,1);*/
-			y = randd(-1, 1);
+			x = random_double(-1, 1);
+			y = random_double(-1, 1);
 			vec3_set((*n), 0, 0, z);
 			point3_set((*v), x, y, z);
 			mat4_product_point3((*v), transformations, (*v));
@@ -184,10 +174,8 @@ static PointCloud * point_cloud_cube(int density, color4 color, mat4 transformat
 	}
 	for (i = 0; i < yface; i++) {
 		for (y = -1; y <= 1; y+=2) {
-			/*x = g3x_Rand_Delta(0,1);
-			z = g3x_Rand_Delta(0,1);*/
-			x = randd(-1, 1);
-			z = randd(-1, 1);
+			x = random_double(-1, 1);
+			z = random_double(-1, 1);
 			vec3_set((*n), 0, y, 0);
 			point3_set((*v), x, y, z);
 			mat4_product_point3((*v), transformations, (*v));
@@ -198,10 +186,8 @@ static PointCloud * point_cloud_cube(int density, color4 color, mat4 transformat
 	}
 	for (i = 0; i < xface; i++) {
 		for (x = -1; x <= 1; x+=2) {
-			/*y = g3x_Rand_Delta(0,1);
-			z = g3x_Rand_Delta(0,1);*/
-			y = randd(-1, 1);
-			z = randd(-1, 1);
+			y = random_double(-1, 1);
+			z = random_double(-1, 1);
 			vec3_set((*n), x, 0, 0);
 			point3_set((*v), x, y, z);
 			mat4_product_point3((*v), transformations, (*v));
@@ -245,10 +231,8 @@ static PointCloud * point_cloud_cylinder(int density, color4 color, mat4 transfo
 	point3 *v = vrtx;
 	vec3 *n = norm;
 	for (i = 0; i < side; i++) {
-		/*z = g3x_Rand_Delta(0,1);*/
-		z = randd(-1, 1);
-		/*double alpha = g3x_Rand_Delta(PI,PI);*/
-		double alpha = randd(0, 2*PI);
+		z = random_double(-1, 1);
+		double alpha = random_double(0, 2*PI);
 		vec3_set((*n), cos(alpha), sin(alpha), 0);
 		point3_set((*v), cos(alpha), sin(alpha), z);
 		mat4_product_point3((*v), transformations, (*v));
@@ -259,10 +243,8 @@ static PointCloud * point_cloud_cylinder(int density, color4 color, mat4 transfo
 	for (z = -1; z <= 1; z+=2) {
 		i = 0;
 		while (i < face) {
-			/*double x = g3x_Rand_Delta(0,1);
-			double y = g3x_Rand_Delta(0,1);*/
-			double x = randd(-1, 1);
-			double y = randd(-1, 1);
+			double x = random_double(-1, 1);
+			double y = random_double(-1, 1);
 			if (x*x + y*y > 1)
 				continue;
 			vec3_set((*n), 0, 0, z);
@@ -311,10 +293,8 @@ static PointCloud * point_cloud_cone(int density, color4 color, mat4 transformat
 	point3 *v = vrtx;
 	vec3 *n = norm;
 	for (i = 0; i < side; i++) {
-		/*double z = 2*(1 - sqrt(g3x_Rand_Delta(0.5,0.5))) - 1;*/
-		double z = 2*(1 - sqrt(randd(0, 1))) - 1;
-		/*double alpha = g3x_Rand_Delta(PI,PI);*/
-		double alpha = randd(0, 2*PI);
+		double z = 2*(1 - sqrt(random_double(0, 1))) - 1;
+		double alpha = random_double(0, 2*PI);
 		double rz = (1-z)/2;
 		double cos_alpha = cos(alpha);
 		double sin_alpha = sin(alpha);
@@ -327,10 +307,8 @@ static PointCloud * point_cloud_cone(int density, color4 color, mat4 transformat
 	}
 	i = 0;
 	while (i < face) {
-		/*double x = g3x_Rand_Delta(0,1);*/
-		double x = randd(-1, 1);
-		/*double y = g3x_Rand_Delta(0,1);*/
-		double y = randd(-1, 1);
+		double x = random_double(-1, 1);
+		double y = random_double(-1, 1);
 		if (x*x + y*y > 1)
 			continue;
 		vec3_set((*n), 0, 0, -1);
@@ -378,10 +356,8 @@ static PointCloud * point_cloud_torus(int density, color4 color, mat4 transforma
 	double d = 0.2;
 	double delta = PI + d; 
 	for (i = 0; i < size; i++) {
-		/*double phi = (g3x_Rand_Delta(0,delta) + g3x_Rand_Delta(0,delta))/2.;*/
-		double phi = randd(-delta, delta) + randd(-delta, delta);
-		/*double alpha = g3x_Rand_Delta(PI,PI);*/
-		double alpha = randd(0, 2*PI);
+		double phi = random_double(-delta, delta) + random_double(-delta, delta);
+		double alpha = random_double(0, 2*PI);
 		double cos_phi = cos(phi);
 		double sin_phi = sin(phi);
 		double r_cos_phi = 1 + r*cos_phi;
