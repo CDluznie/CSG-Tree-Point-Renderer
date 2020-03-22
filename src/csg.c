@@ -22,7 +22,7 @@
 #define LIGHT_DIRECTION_Z (1)
 #define WINDOW_NAME ("CSG Tree Point Rendering")
 #define LOW_TOKEN ("low")
-#define LOW_DENSITY (5000)
+#define LOW_DENSITY (3000)
 #define MEDIUM_TOKEN ("medium")
 #define MEDIUM_DENSITY (20000)
 #define HIGH_TOKEN ("high")
