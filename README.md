@@ -18,12 +18,15 @@ TODO constructive solid geometry [Wikipedia page](https://en.wikipedia.org/wiki/
 
 ![result-cheese](./doc/results/cheese.png)
 
+Other scenes examples are available in directory *scenes/*
+
 ## Usage
 
 * Compilation : `make`
+
 * Run : `./csg scene density`
-	* *filename* : path to the grammar file of the L-System
-	* *n* : number of iterations
-	* *angle* : optional, angle of rotation to apply to the figure (default value is 0)
+	* *scene* : path to the file scene to display
+	* *density* : resolution of the scene to display TODO VALUE low, medium, high
+
 * Delete binaries : `make mrproper`
 
