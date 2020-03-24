@@ -3,14 +3,12 @@
 
 3D point rendering system of constructive solid geometry (CSG) scenes based on OpenGL 3/GLUT.
 
+![result-cheese](./doc/results/cheese.png)
+
 ## Presentation
 
 The goal of the project is to realize a point cloud render to a scene obtained by using the [solid construction geometry](https://en.wikipedia.org/wiki/Constructive_solid_geometry) operators technique.
 A scene is obtained by composing canonical shapes (spheres, cubes, cylinders, cones and torus) with the CSG operators (union, intersection and difference) represented as a tree.
-
-
-![result-cheese](./doc/results/cheese.png)
-
 
 The implemented strategies allow to obtain the best rendering (a homogeneous distribution of points and an equivalent point density between each form) but at the expense of a longer execution time.
 Then, the level of resolution is configurable in order to be able to display scenes on every architectures.
@@ -43,30 +41,53 @@ Hoping the point are evenly distribute over the surfaces, the problem is to comp
 
 We can use the know formulas to compute the area of the canonical shapes but it work correcty only if no scaling operation is performed on the object.
 To tackle this issue, we evaluate the new area of a canonical shape when a homothety is performed.
-For some shape the calculation is still trivial (as in the cube), but in the in most cases the calculation is extremely complicated, for example the sphere which becomes an ellipsoid, and we can not retrieve the exact value of the area.
-So we try to use in these cases approximation and just hoping the approximation is good enough to guarantee the consistency of density between canonical shape.
+For some shapes the calculation is still trivial (as in the cube), but in the in most cases the calculation is extremely complicated, for example the sphere which becomes an ellipsoid, and we can not retrieve the exact value of the area.
+So we try to use in these cases approximation and just hoping the approximation is good enough to guarantee the consistency of density between canonical shapes.
 
-Here an example when the resolution is low.
+Here an example when the resolution is at a low level :
 
 ![result-shapes-low](./doc/results/shapes_low.png)
 
-Here an example when the resolution is low.
+When the resolution is at a medium level :
 
 ![result-shapes-medium](./doc/results/shapes_medium.png)
 
-Here an example when the resolution is low.
+And when the resolution is at a high level :
 
 ![result-shapes-high](./doc/results/shapes_high.png)
 
 ## CSG Tree
 
-TODO
+Canonical shapes are used as basic bricks for the construction of scene, then we use CSG operators arranged in the form of a tree to combine the shapes and therefore get more complicated scenes.
 
-## Example :
+A leaf in the CSG tree will be a description of a canonical shape, and an internal node will be a CSG operator.
+We have 4 operator: Union without intersection (called Union), Union with intersection (called Identity), Intersection and Difference.
+We use the Identity operator when we want to achieve the union of two structures we know the empty is intersection, we then avoid the time necessary to calculate the intersection.
+In addition to these CSG operator, we can also perform basic geometric operation like translation, homothety and rotation.
 
-TODO constructive solid geometry [Wikipedia page](https://en.wikipedia.org/wiki/Constructive_solid_geometry).
+The tree representing the scene is only in a abstract representation so we also need here a way to transform the CSG tree into a point cloud.
+
+
+To obtain the point cloud of an object obtained by geometry of solid construction, we first implement an algorithm to know if a point belongs to the object.
+The algorithm iterate recursively over the node : if the node is a leaf, we check if the point belongs to the canonical shape, otherwise we evaluate the belonging of the point to the subtrees and compose it as a boolean expression in function of the CSG operator of the node.
+For example if the node is a union the point must belong to the left subtree or to the right subtree, but if the node is an intersection the point must belong to the left subtree and to the right subtree.
+
+
+With the belonging algorithm we can then easily obtain the representation in point cloud of the tree with the following algorithm : if the tree is a leaf, then its point cloud corresponds to the point cloud of the canonical object, otherwise we will recursively generate point clouds of left and right subtrees and then merge these two point clouds to generate a new one corresponding to the CSG operator.
+The merging strategy is different given the CSG operator and it is based on the belonging function.
+For example if the operator is a union, we can get rid of the left subtree points that belong to the right subtree (and vice versa).
+If the operator is an intersection, we should only keep only the points of the left subtree points that belong to the right subtree (and vice versa).
+
+
+Here a result of a CSG tree inspired from [Wikipedia example](https://en.wikipedia.org/wiki/Constructive_solid_geometry#/media/File:Csg_tree.png).
 
 ![result-constructive](./doc/results/constructive.png)
+
+
+### Difference composition problem
+
+TODO problem when we the right operand of a difference is a difference 
+
 
 ## Usage
 
