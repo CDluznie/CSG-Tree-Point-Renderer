@@ -14,18 +14,12 @@
  * \brief Enumeration of the different combination operations available
  */ 
 typedef enum {
-	Union, /**< Union */
+	Union, /**< Union (Be careful it is not strictly a mathematical union : the intersection is removed)  */
 	Intersection, /**< Intersection */
 	Difference, /**< Difference */
-	Identity, /**< Identity (union with intersection kept) */
+	Identity, /**< Identity (Be careful this operation is a union with intersection kept, be sure then the intersection is empty or it can lead to strange shapes when this operation is composed) */
 	NumberOperator /**< Number of combination operator */
 } Operator;
-
-/*
- * TODO add explanation on Union - Identity
- * maybe rename Union -> Symetric difference
- * 			    Identity -> Union
- */
 
 /**
  * \brief Structure defining a CSG tree

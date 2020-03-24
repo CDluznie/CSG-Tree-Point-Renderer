@@ -1,0 +1,72 @@
+\hypertarget{struct_node}{}\section{Node Struct Reference}
+\label{struct_node}\index{Node@{Node}}
+
+
+Structure defining a C\+SG tree.  
+
+
+
+
+{\ttfamily \#include $<$tree.\+h$>$}
+
+
+
+Collaboration diagram for Node\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{struct_node__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{tree_8h_a7215803e478cdd4bdf4f1b8087cae87b}{Operator} \hyperlink{struct_node_a2a8ef6b2c643a5bc2991ec125cbdb700}{op}
+\item 
+\hyperlink{struct_shape}{Shape} $\ast$ \hyperlink{struct_node_a3f409da58d3391e8f33c69cce5e4044f}{shape}
+\item 
+\hyperlink{types_8h_af8defaae7643cbe46b09ad8dea2eca9b}{mat4} \hyperlink{struct_node_aaeb58d722bd66bac7f6f6b4d715ba4c2}{transformations}
+\item 
+\hyperlink{types_8h_af8defaae7643cbe46b09ad8dea2eca9b}{mat4} \hyperlink{struct_node_a4b726ee7ba7e35b04356dae649a0f39e}{inv\+\_\+transformations}
+\item 
+\hyperlink{types_8h_af8defaae7643cbe46b09ad8dea2eca9b}{mat4} \hyperlink{struct_node_a902250dd3f3a7dc23af98f9a7df93317}{norm\+\_\+transformations}
+\item 
+struct \hyperlink{struct_node}{Node} $\ast$ \hyperlink{struct_node_a25eed0b3ce3478a3edb4a00c81dedd5e}{left}
+\item 
+struct \hyperlink{struct_node}{Node} $\ast$ \hyperlink{struct_node_a760682e46f54442d313a05d18095b52f}{right}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Structure defining a C\+SG tree. 
+
+A C\+SG tree is a recursive structure. If the tree is a leaf, it is defined by a canonical form. If the tree is an internal node, it is defined by a combination operator, a left C\+SG tree child and a right C\+SG tree child. In both cases, the tree also contains a points transformation matrix, an inverse points transformation matrix, and a normals transformation matrix. 
+
+\subsection{Field Documentation}
+\index{Node@{Node}!inv\+\_\+transformations@{inv\+\_\+transformations}}
+\index{inv\+\_\+transformations@{inv\+\_\+transformations}!Node@{Node}}
+\subsubsection[{\texorpdfstring{inv\+\_\+transformations}{inv_transformations}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf mat4} inv\+\_\+transformations}\hypertarget{struct_node_a4b726ee7ba7e35b04356dae649a0f39e}{}\label{struct_node_a4b726ee7ba7e35b04356dae649a0f39e}
+Inverse points transformation matrix \index{Node@{Node}!left@{left}}
+\index{left@{left}!Node@{Node}}
+\subsubsection[{\texorpdfstring{left}{left}}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf Node}$\ast$ left}\hypertarget{struct_node_a25eed0b3ce3478a3edb4a00c81dedd5e}{}\label{struct_node_a25eed0b3ce3478a3edb4a00c81dedd5e}
+Left C\+SG subtree \index{Node@{Node}!norm\+\_\+transformations@{norm\+\_\+transformations}}
+\index{norm\+\_\+transformations@{norm\+\_\+transformations}!Node@{Node}}
+\subsubsection[{\texorpdfstring{norm\+\_\+transformations}{norm_transformations}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf mat4} norm\+\_\+transformations}\hypertarget{struct_node_a902250dd3f3a7dc23af98f9a7df93317}{}\label{struct_node_a902250dd3f3a7dc23af98f9a7df93317}
+Normals transformation matrix \index{Node@{Node}!op@{op}}
+\index{op@{op}!Node@{Node}}
+\subsubsection[{\texorpdfstring{op}{op}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Operator} op}\hypertarget{struct_node_a2a8ef6b2c643a5bc2991ec125cbdb700}{}\label{struct_node_a2a8ef6b2c643a5bc2991ec125cbdb700}
+Combination operator \index{Node@{Node}!right@{right}}
+\index{right@{right}!Node@{Node}}
+\subsubsection[{\texorpdfstring{right}{right}}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf Node}$\ast$ right}\hypertarget{struct_node_a760682e46f54442d313a05d18095b52f}{}\label{struct_node_a760682e46f54442d313a05d18095b52f}
+Right C\+SG subtree \index{Node@{Node}!shape@{shape}}
+\index{shape@{shape}!Node@{Node}}
+\subsubsection[{\texorpdfstring{shape}{shape}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Shape}$\ast$ shape}\hypertarget{struct_node_a3f409da58d3391e8f33c69cce5e4044f}{}\label{struct_node_a3f409da58d3391e8f33c69cce5e4044f}
+Canonical shape \index{Node@{Node}!transformations@{transformations}}
+\index{transformations@{transformations}!Node@{Node}}
+\subsubsection[{\texorpdfstring{transformations}{transformations}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf mat4} transformations}\hypertarget{struct_node_aaeb58d722bd66bac7f6f6b4d715ba4c2}{}\label{struct_node_aaeb58d722bd66bac7f6f6b4d715ba4c2}
+Points transformation matrix 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{tree_8h}{tree.\+h}\end{DoxyCompactItemize}

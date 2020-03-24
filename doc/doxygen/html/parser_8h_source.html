@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>CSG-Tree-Point-Renderer: include/parser.h Source File</title>
+<title>CSG Tree Point Renderer: include/parser.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">CSG-Tree-Point-Renderer
+   <div id="projectname">CSG Tree Point Renderer
    </div>
   </td>
  </tr>
@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -89,8 +90,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <a href="parser_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef __PARSER_H__</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define __PARSER_H__</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tree_8h.html">tree.h</a>&quot;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;stdio.h&gt;</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="parser_8h.html#aed906361e2131194a1a5dbf59d26391d">   15</a></span>&#160;<span class="preprocessor">#define SHAPE_SPHERE (&quot;sphere&quot;)</span></div><div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div><div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="parser_8h.html#ab540250c0c73b3aa9b3dcacdec091b82">   20</a></span>&#160;<span class="preprocessor">#define SHAPE_CUBE (&quot;cube&quot;)</span></div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="parser_8h.html#abddb505f228469bbe6597b16f02f6e10">   25</a></span>&#160;<span class="preprocessor">#define SHAPE_CYLINDER (&quot;cylinder&quot;)</span></div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div><div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="parser_8h.html#ae2f671de2e98a442ee8ffe056ca092a1">   30</a></span>&#160;<span class="preprocessor">#define SHAPE_CONE (&quot;cone&quot;)</span></div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="parser_8h.html#a46cfff182a5b565663ef6680c6974695">   35</a></span>&#160;<span class="preprocessor">#define SHAPE_TORUS (&quot;torus&quot;)</span></div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div><div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="parser_8h.html#aa237e32e2b19b4c59921efeddca67c79">   40</a></span>&#160;<span class="preprocessor">#define OPERATOR_IDENTITY (&quot;=&quot;)</span></div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div><div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="parser_8h.html#a6ae34b078004ecd3f89c216c65685bea">   45</a></span>&#160;<span class="preprocessor">#define OPERATOR_UNION (&quot;+&quot;)</span></div><div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div><div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="parser_8h.html#ad3335be86ab8d79701226a2a55fa19d1">   50</a></span>&#160;<span class="preprocessor">#define OPERATOR_INTERSECTION (&quot;*&quot;)</span></div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="parser_8h.html#a2bb8dc3cabc232571dbad6da956179e8">   55</a></span>&#160;<span class="preprocessor">#define OPERATOR_DIFFERENCE (&quot;-&quot;)</span></div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<a class="code" href="struct_node.html">Tree</a> <a class="code" href="parser_8h.html#a90c38d4013dd4cb793002cc3ab2b0729">parse_tree</a>(FILE *file);</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="tree_8h_html"><div class="ttname"><a href="tree_8h.html">tree.h</a></div><div class="ttdoc">CSG tree management module. </div></div>
-<div class="ttc" id="parser_8h_html_a90c38d4013dd4cb793002cc3ab2b0729"><div class="ttname"><a href="parser_8h.html#a90c38d4013dd4cb793002cc3ab2b0729">parse_tree</a></div><div class="ttdeci">Tree parse_tree(FILE *file)</div><div class="ttdoc">Parse a file to convert it to a CSG tree. </div></div>
-<div class="ttc" id="struct_node_html"><div class="ttname"><a href="struct_node.html">Node</a></div><div class="ttdoc">Structure defining a CSG tree. </div><div class="ttdef"><b>Definition:</b> tree.h:38</div></div>
+<div class="ttc" id="parser_8h_html_a90c38d4013dd4cb793002cc3ab2b0729"><div class="ttname"><a href="parser_8h.html#a90c38d4013dd4cb793002cc3ab2b0729">parse_tree</a></div><div class="ttdeci">Tree parse_tree(FILE *file)</div><div class="ttdoc">Parse a file to convert it to a CSG tree. </div><div class="ttdef"><b>Definition:</b> parser.c:179</div></div>
+<div class="ttc" id="struct_node_html"><div class="ttname"><a href="struct_node.html">Node</a></div><div class="ttdoc">Structure defining a CSG tree. </div><div class="ttdef"><b>Definition:</b> tree.h:32</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

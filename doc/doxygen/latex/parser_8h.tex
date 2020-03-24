@@ -1,0 +1,82 @@
+\hypertarget{parser_8h}{}\section{include/parser.h File Reference}
+\label{parser_8h}\index{include/parser.\+h@{include/parser.\+h}}
+
+
+C\+SG tree parsing module.  
+
+
+{\ttfamily \#include \char`\"{}tree.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+Include dependency graph for parser.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{parser_8h__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{parser_8h_aed906361e2131194a1a5dbf59d26391d}{S\+H\+A\+P\+E\+\_\+\+S\+P\+H\+E\+RE}~(\char`\"{}sphere\char`\"{})\hypertarget{parser_8h_aed906361e2131194a1a5dbf59d26391d}{}\label{parser_8h_aed906361e2131194a1a5dbf59d26391d}
+
+\begin{DoxyCompactList}\small\item\em Sphere token in a scene file. \end{DoxyCompactList}\item 
+\#define \hyperlink{parser_8h_ab540250c0c73b3aa9b3dcacdec091b82}{S\+H\+A\+P\+E\+\_\+\+C\+U\+BE}~(\char`\"{}cube\char`\"{})\hypertarget{parser_8h_ab540250c0c73b3aa9b3dcacdec091b82}{}\label{parser_8h_ab540250c0c73b3aa9b3dcacdec091b82}
+
+\begin{DoxyCompactList}\small\item\em Cube token in a scene file. \end{DoxyCompactList}\item 
+\#define \hyperlink{parser_8h_abddb505f228469bbe6597b16f02f6e10}{S\+H\+A\+P\+E\+\_\+\+C\+Y\+L\+I\+N\+D\+ER}~(\char`\"{}cylinder\char`\"{})\hypertarget{parser_8h_abddb505f228469bbe6597b16f02f6e10}{}\label{parser_8h_abddb505f228469bbe6597b16f02f6e10}
+
+\begin{DoxyCompactList}\small\item\em Cylinder token in a scene file. \end{DoxyCompactList}\item 
+\#define \hyperlink{parser_8h_ae2f671de2e98a442ee8ffe056ca092a1}{S\+H\+A\+P\+E\+\_\+\+C\+O\+NE}~(\char`\"{}cone\char`\"{})\hypertarget{parser_8h_ae2f671de2e98a442ee8ffe056ca092a1}{}\label{parser_8h_ae2f671de2e98a442ee8ffe056ca092a1}
+
+\begin{DoxyCompactList}\small\item\em Cone token in a scene file. \end{DoxyCompactList}\item 
+\#define \hyperlink{parser_8h_a46cfff182a5b565663ef6680c6974695}{S\+H\+A\+P\+E\+\_\+\+T\+O\+R\+US}~(\char`\"{}torus\char`\"{})\hypertarget{parser_8h_a46cfff182a5b565663ef6680c6974695}{}\label{parser_8h_a46cfff182a5b565663ef6680c6974695}
+
+\begin{DoxyCompactList}\small\item\em Tore token in a scene file. \end{DoxyCompactList}\item 
+\#define \hyperlink{parser_8h_aa237e32e2b19b4c59921efeddca67c79}{O\+P\+E\+R\+A\+T\+O\+R\+\_\+\+I\+D\+E\+N\+T\+I\+TY}~(\char`\"{}=\char`\"{})\hypertarget{parser_8h_aa237e32e2b19b4c59921efeddca67c79}{}\label{parser_8h_aa237e32e2b19b4c59921efeddca67c79}
+
+\begin{DoxyCompactList}\small\item\em Identity operator token in a scene file. \end{DoxyCompactList}\item 
+\#define \hyperlink{parser_8h_a6ae34b078004ecd3f89c216c65685bea}{O\+P\+E\+R\+A\+T\+O\+R\+\_\+\+U\+N\+I\+ON}~(\char`\"{}+\char`\"{})\hypertarget{parser_8h_a6ae34b078004ecd3f89c216c65685bea}{}\label{parser_8h_a6ae34b078004ecd3f89c216c65685bea}
+
+\begin{DoxyCompactList}\small\item\em Union operator token in a scene file. \end{DoxyCompactList}\item 
+\#define \hyperlink{parser_8h_ad3335be86ab8d79701226a2a55fa19d1}{O\+P\+E\+R\+A\+T\+O\+R\+\_\+\+I\+N\+T\+E\+R\+S\+E\+C\+T\+I\+ON}~(\char`\"{}$\ast$\char`\"{})\hypertarget{parser_8h_ad3335be86ab8d79701226a2a55fa19d1}{}\label{parser_8h_ad3335be86ab8d79701226a2a55fa19d1}
+
+\begin{DoxyCompactList}\small\item\em Intersection operator token in a scene file. \end{DoxyCompactList}\item 
+\#define \hyperlink{parser_8h_a2bb8dc3cabc232571dbad6da956179e8}{O\+P\+E\+R\+A\+T\+O\+R\+\_\+\+D\+I\+F\+F\+E\+R\+E\+N\+CE}~(\char`\"{}-\/\char`\"{})\hypertarget{parser_8h_a2bb8dc3cabc232571dbad6da956179e8}{}\label{parser_8h_a2bb8dc3cabc232571dbad6da956179e8}
+
+\begin{DoxyCompactList}\small\item\em Difference operator token in a scene file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{tree_8h_aa8e9e0ac171efcf72384224fafa0915a}{Tree} \hyperlink{parser_8h_a90c38d4013dd4cb793002cc3ab2b0729}{parse\+\_\+tree} (F\+I\+LE $\ast$file)
+\begin{DoxyCompactList}\small\item\em Parse a file to convert it to a C\+SG tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+C\+SG tree parsing module. 
+
+
+
+\subsection{Function Documentation}
+\index{parser.\+h@{parser.\+h}!parse\+\_\+tree@{parse\+\_\+tree}}
+\index{parse\+\_\+tree@{parse\+\_\+tree}!parser.\+h@{parser.\+h}}
+\subsubsection[{\texorpdfstring{parse\+\_\+tree(\+F\+I\+L\+E $\ast$file)}{parse_tree(FILE *file)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tree} parse\+\_\+tree (
+\begin{DoxyParamCaption}
+\item[{F\+I\+LE $\ast$}]{file}
+\end{DoxyParamCaption}
+)}\hypertarget{parser_8h_a90c38d4013dd4cb793002cc3ab2b0729}{}\label{parser_8h_a90c38d4013dd4cb793002cc3ab2b0729}
+
+
+Parse a file to convert it to a C\+SG tree. 
+
+The file must be the result of the depth scan of the tree to be allocated. One line in the file should correspond either to a canonical shape or to a combination operator. Check the readme file for more information on the format to follow. The format must be respected otherwise the program stops.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & C\+SG tree file to parse ~\newline
+Can not take the value {\itshape N\+U\+LL} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the C\+SG tree represented by the file 
+\end{DoxyReturn}

@@ -1,0 +1,334 @@
+\hypertarget{tree_8h}{}\section{include/tree.h File Reference}
+\label{tree_8h}\index{include/tree.\+h@{include/tree.\+h}}
+
+
+C\+SG tree management module.  
+
+
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}point\+\_\+cloud.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}shape.\+h\char`\"{}}\\*
+Include dependency graph for tree.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{tree_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{tree_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_node}{Node}
+\begin{DoxyCompactList}\small\item\em Structure defining a C\+SG tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct_node}{Node} $\ast$ \hyperlink{tree_8h_aa8e9e0ac171efcf72384224fafa0915a}{Tree}
+\begin{DoxyCompactList}\small\item\em Structure defining a C\+SG tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{tree_8h_a7215803e478cdd4bdf4f1b8087cae87b}{Operator} \{ \\*
+\hyperlink{tree_8h_a7215803e478cdd4bdf4f1b8087cae87ba8b8b090d04260fea32aac10ccc01175f}{Union}, 
+\hyperlink{tree_8h_a7215803e478cdd4bdf4f1b8087cae87bac852ba2c20196516a8b943442128d21c}{Intersection}, 
+\hyperlink{tree_8h_a7215803e478cdd4bdf4f1b8087cae87ba9cba343e00a6259dc83f7e4e7f447109}{Difference}, 
+\hyperlink{tree_8h_a7215803e478cdd4bdf4f1b8087cae87ba24f669631df31da9ebff42fc3b49b8df}{Identity}, 
+\\*
+\hyperlink{tree_8h_a7215803e478cdd4bdf4f1b8087cae87ba7d876d99c658cc26192c3c6804f921e3}{Number\+Operator}
+ \}\begin{DoxyCompactList}\small\item\em Enumeration of the different combination operations available. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{tree_8h_aa8e9e0ac171efcf72384224fafa0915a}{Tree} \hyperlink{tree_8h_aa60547132cb430d5ca8d53193f3b6abd}{tree\+\_\+allocate\+\_\+leaf} (\hyperlink{struct_shape}{Shape} $\ast$shape)
+\begin{DoxyCompactList}\small\item\em Allocate a leaf of a C\+SG tree. \end{DoxyCompactList}\item 
+\hyperlink{tree_8h_aa8e9e0ac171efcf72384224fafa0915a}{Tree} \hyperlink{tree_8h_a145f24165d53bfdc61f8b5188fa1f3df}{tree\+\_\+allocate\+\_\+node} (\hyperlink{tree_8h_a7215803e478cdd4bdf4f1b8087cae87b}{Operator} op, \hyperlink{tree_8h_aa8e9e0ac171efcf72384224fafa0915a}{Tree} left, \hyperlink{tree_8h_aa8e9e0ac171efcf72384224fafa0915a}{Tree} right)
+\begin{DoxyCompactList}\small\item\em Allocate an internal node of a C\+SG tree. \end{DoxyCompactList}\item 
+void \hyperlink{tree_8h_a25348c717409522ec53e4f21c0694832}{tree\+\_\+free} (\hyperlink{tree_8h_aa8e9e0ac171efcf72384224fafa0915a}{Tree} $\ast$tree)
+\begin{DoxyCompactList}\small\item\em Free the memory allocated by a C\+SG tree. \end{DoxyCompactList}\item 
+\hyperlink{struct_point_cloud}{Point\+Cloud} $\ast$ \hyperlink{tree_8h_a83d75ed9c3a3d3ae5c017838c19323b1}{tree\+\_\+to\+\_\+point\+\_\+cloud} (\hyperlink{tree_8h_aa8e9e0ac171efcf72384224fafa0915a}{Tree} tree, int density)
+\begin{DoxyCompactList}\small\item\em Convert a C\+SG tree to a point cloud. \end{DoxyCompactList}\item 
+void \hyperlink{tree_8h_a41743dcfea9e4f95b025d24b271edb02}{tree\+\_\+homothety} (\hyperlink{tree_8h_aa8e9e0ac171efcf72384224fafa0915a}{Tree} tree, double x, double y, double z)
+\begin{DoxyCompactList}\small\item\em Perform an homothety on a C\+SG tree. \end{DoxyCompactList}\item 
+int \hyperlink{tree_8h_a964b5db4c8cd5d4ea0e2d019b410a99c}{tree\+\_\+is\+\_\+valid} (\hyperlink{tree_8h_aa8e9e0ac171efcf72384224fafa0915a}{Tree} tree)
+\begin{DoxyCompactList}\small\item\em Test if a C\+SG tree datastructure is valid. \end{DoxyCompactList}\item 
+void \hyperlink{tree_8h_a06ca6498ae84252b4427a2dc700f15d2}{tree\+\_\+rotation} (\hyperlink{tree_8h_aa8e9e0ac171efcf72384224fafa0915a}{Tree} tree, double x, double y, double z)
+\begin{DoxyCompactList}\small\item\em Perform a rotation on a C\+SG tree. \end{DoxyCompactList}\item 
+void \hyperlink{tree_8h_a88560e0ec370059ab261331d1a09ea9e}{tree\+\_\+translation} (\hyperlink{tree_8h_aa8e9e0ac171efcf72384224fafa0915a}{Tree} tree, double x, double y, double z)
+\begin{DoxyCompactList}\small\item\em Perform a translation on a C\+SG tree. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+C\+SG tree management module. 
+
+
+
+\subsection{Typedef Documentation}
+\index{tree.\+h@{tree.\+h}!Tree@{Tree}}
+\index{Tree@{Tree}!tree.\+h@{tree.\+h}}
+\subsubsection[{\texorpdfstring{Tree}{Tree}}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Node} $\ast$ {\bf Tree}}\hypertarget{tree_8h_aa8e9e0ac171efcf72384224fafa0915a}{}\label{tree_8h_aa8e9e0ac171efcf72384224fafa0915a}
+
+
+Structure defining a C\+SG tree. 
+
+A C\+SG tree is a recursive structure. If the tree is a leaf, it is defined by a canonical form. If the tree is an internal node, it is defined by a combination operator, a left C\+SG tree child and a right C\+SG tree child. In both cases, the tree also contains a points transformation matrix, an inverse points transformation matrix, and a normals transformation matrix. 
+
+\subsection{Enumeration Type Documentation}
+\index{tree.\+h@{tree.\+h}!Operator@{Operator}}
+\index{Operator@{Operator}!tree.\+h@{tree.\+h}}
+\subsubsection[{\texorpdfstring{Operator}{Operator}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Operator}}\hypertarget{tree_8h_a7215803e478cdd4bdf4f1b8087cae87b}{}\label{tree_8h_a7215803e478cdd4bdf4f1b8087cae87b}
+
+
+Enumeration of the different combination operations available. 
+
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Union@{Union}!tree.\+h@{tree.\+h}}\index{tree.\+h@{tree.\+h}!Union@{Union}}\item[{\em 
+Union\hypertarget{tree_8h_a7215803e478cdd4bdf4f1b8087cae87ba8b8b090d04260fea32aac10ccc01175f}{}\label{tree_8h_a7215803e478cdd4bdf4f1b8087cae87ba8b8b090d04260fea32aac10ccc01175f}
+}]Union (Be careful it is not strictly a mathematical union \+: the intersection is removed) \index{Intersection@{Intersection}!tree.\+h@{tree.\+h}}\index{tree.\+h@{tree.\+h}!Intersection@{Intersection}}\item[{\em 
+Intersection\hypertarget{tree_8h_a7215803e478cdd4bdf4f1b8087cae87bac852ba2c20196516a8b943442128d21c}{}\label{tree_8h_a7215803e478cdd4bdf4f1b8087cae87bac852ba2c20196516a8b943442128d21c}
+}]Intersection \index{Difference@{Difference}!tree.\+h@{tree.\+h}}\index{tree.\+h@{tree.\+h}!Difference@{Difference}}\item[{\em 
+Difference\hypertarget{tree_8h_a7215803e478cdd4bdf4f1b8087cae87ba9cba343e00a6259dc83f7e4e7f447109}{}\label{tree_8h_a7215803e478cdd4bdf4f1b8087cae87ba9cba343e00a6259dc83f7e4e7f447109}
+}]Difference \index{Identity@{Identity}!tree.\+h@{tree.\+h}}\index{tree.\+h@{tree.\+h}!Identity@{Identity}}\item[{\em 
+Identity\hypertarget{tree_8h_a7215803e478cdd4bdf4f1b8087cae87ba24f669631df31da9ebff42fc3b49b8df}{}\label{tree_8h_a7215803e478cdd4bdf4f1b8087cae87ba24f669631df31da9ebff42fc3b49b8df}
+}]Identity (Be careful this operation is a union with intersection kept, be sure then the intersection is empty or it can lead to strange shapes when this operation is composed) \index{Number\+Operator@{Number\+Operator}!tree.\+h@{tree.\+h}}\index{tree.\+h@{tree.\+h}!Number\+Operator@{Number\+Operator}}\item[{\em 
+Number\+Operator\hypertarget{tree_8h_a7215803e478cdd4bdf4f1b8087cae87ba7d876d99c658cc26192c3c6804f921e3}{}\label{tree_8h_a7215803e478cdd4bdf4f1b8087cae87ba7d876d99c658cc26192c3c6804f921e3}
+}]Number of combination operator \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{tree.\+h@{tree.\+h}!tree\+\_\+allocate\+\_\+leaf@{tree\+\_\+allocate\+\_\+leaf}}
+\index{tree\+\_\+allocate\+\_\+leaf@{tree\+\_\+allocate\+\_\+leaf}!tree.\+h@{tree.\+h}}
+\subsubsection[{\texorpdfstring{tree\+\_\+allocate\+\_\+leaf(\+Shape $\ast$shape)}{tree_allocate_leaf(Shape *shape)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tree} tree\+\_\+allocate\+\_\+leaf (
+\begin{DoxyParamCaption}
+\item[{{\bf Shape} $\ast$}]{shape}
+\end{DoxyParamCaption}
+)}\hypertarget{tree_8h_aa60547132cb430d5ca8d53193f3b6abd}{}\label{tree_8h_aa60547132cb430d5ca8d53193f3b6abd}
+
+
+Allocate a leaf of a C\+SG tree. 
+
+The program stops if the allocation has failed. This function allocate some memory that need to be freed with {\itshape tree\+\_\+free} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape} & Canonical shape ~\newline
+Can not take the value {\itshape N\+U\+LL} ~\newline
+Must be a valid canonical shape\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the allocated leaf 
+\end{DoxyReturn}
+\index{tree.\+h@{tree.\+h}!tree\+\_\+allocate\+\_\+node@{tree\+\_\+allocate\+\_\+node}}
+\index{tree\+\_\+allocate\+\_\+node@{tree\+\_\+allocate\+\_\+node}!tree.\+h@{tree.\+h}}
+\subsubsection[{\texorpdfstring{tree\+\_\+allocate\+\_\+node(\+Operator op, Tree left, Tree right)}{tree_allocate_node(Operator op, Tree left, Tree right)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tree} tree\+\_\+allocate\+\_\+node (
+\begin{DoxyParamCaption}
+\item[{{\bf Operator}}]{op, }
+\item[{{\bf Tree}}]{left, }
+\item[{{\bf Tree}}]{right}
+\end{DoxyParamCaption}
+)}\hypertarget{tree_8h_a145f24165d53bfdc61f8b5188fa1f3df}{}\label{tree_8h_a145f24165d53bfdc61f8b5188fa1f3df}
+
+
+Allocate an internal node of a C\+SG tree. 
+
+The program stops if the allocation has failed. This function allocate some memory that need to be freed with {\itshape tree\+\_\+free}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em op} & Combination operator at the root of the tree\\
+\hline
+{\em left} & Left subtree ~\newline
+Can not take the value {\itshape N\+U\+LL} ~\newline
+Must be a valid C\+SG tree\\
+\hline
+{\em right} & Right subtree ~\newline
+Can not take the value {\itshape N\+U\+LL} ~\newline
+Must be a valid C\+SG tree\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the allocated internal node 
+\end{DoxyReturn}
+\index{tree.\+h@{tree.\+h}!tree\+\_\+free@{tree\+\_\+free}}
+\index{tree\+\_\+free@{tree\+\_\+free}!tree.\+h@{tree.\+h}}
+\subsubsection[{\texorpdfstring{tree\+\_\+free(\+Tree $\ast$tree)}{tree_free(Tree *tree)}}]{\setlength{\rightskip}{0pt plus 5cm}void tree\+\_\+free (
+\begin{DoxyParamCaption}
+\item[{{\bf Tree} $\ast$}]{tree}
+\end{DoxyParamCaption}
+)}\hypertarget{tree_8h_a25348c717409522ec53e4f21c0694832}{}\label{tree_8h_a25348c717409522ec53e4f21c0694832}
+
+
+Free the memory allocated by a C\+SG tree. 
+
+The pointed C\+SG tree will be set to {\itshape N\+U\+LL}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape} & Pointer to the C\+SG tree to free ~\newline
+Can not take the value {\itshape N\+U\+LL} ~\newline
+Must be a valid C\+SG tree \\
+\hline
+\end{DoxyParams}
+\index{tree.\+h@{tree.\+h}!tree\+\_\+homothety@{tree\+\_\+homothety}}
+\index{tree\+\_\+homothety@{tree\+\_\+homothety}!tree.\+h@{tree.\+h}}
+\subsubsection[{\texorpdfstring{tree\+\_\+homothety(\+Tree tree, double x, double y, double z)}{tree_homothety(Tree tree, double x, double y, double z)}}]{\setlength{\rightskip}{0pt plus 5cm}void tree\+\_\+homothety (
+\begin{DoxyParamCaption}
+\item[{{\bf Tree}}]{tree, }
+\item[{double}]{x, }
+\item[{double}]{y, }
+\item[{double}]{z}
+\end{DoxyParamCaption}
+)}\hypertarget{tree_8h_a41743dcfea9e4f95b025d24b271edb02}{}\label{tree_8h_a41743dcfea9e4f95b025d24b271edb02}
+
+
+Perform an homothety on a C\+SG tree. 
+
+Operation will update matrix fields of the tree. Scaling factors of canonical shapes at leaves are also updated.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape} & C\+SG tree to modify ~\newline
+Can not take the value {\itshape N\+U\+LL} ~\newline
+Must be a valid C\+SG tree\\
+\hline
+{\em x} & Scaling factor on {\itshape x} axis ~\newline
+Must be strictly positive\\
+\hline
+{\em y} & Scaling factor on {\itshape y} axis ~\newline
+Must be strictly positive\\
+\hline
+{\em z} & Scaling factor on {\itshape z} axis ~\newline
+Must be strictly positive \\
+\hline
+\end{DoxyParams}
+\index{tree.\+h@{tree.\+h}!tree\+\_\+is\+\_\+valid@{tree\+\_\+is\+\_\+valid}}
+\index{tree\+\_\+is\+\_\+valid@{tree\+\_\+is\+\_\+valid}!tree.\+h@{tree.\+h}}
+\subsubsection[{\texorpdfstring{tree\+\_\+is\+\_\+valid(\+Tree tree)}{tree_is_valid(Tree tree)}}]{\setlength{\rightskip}{0pt plus 5cm}int tree\+\_\+is\+\_\+valid (
+\begin{DoxyParamCaption}
+\item[{{\bf Tree}}]{tree}
+\end{DoxyParamCaption}
+)}\hypertarget{tree_8h_a964b5db4c8cd5d4ea0e2d019b410a99c}{}\label{tree_8h_a964b5db4c8cd5d4ea0e2d019b410a99c}
+
+
+Test if a C\+SG tree datastructure is valid. 
+
+A C\+SG tree is valid if \+: ~\newline
+
+\begin{DoxyItemize}
+\item {\bfseries tree} is a leaf and {\bfseries shape} is valid ~\newline
+
+\item {\bfseries tree} is internal node and {\bfseries op} is between {\itshape 0} and {\itshape Number\+Operator-\/1} ~\newline
+
+\item {\bfseries tree} is internal node and {\bfseries left} is different from {\itshape N\+U\+LL} ~\newline
+
+\item {\bfseries tree} is internal node and {\bfseries right} is different from {\itshape N\+U\+LL} 
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em tree} & C\+SG tree to test ~\newline
+Can not take the value {\itshape N\+U\+LL} ~\newline
+ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\itshape 1} if C\+SG tree is valid, {\itshape 0} otherwise 
+\end{DoxyReturn}
+\index{tree.\+h@{tree.\+h}!tree\+\_\+rotation@{tree\+\_\+rotation}}
+\index{tree\+\_\+rotation@{tree\+\_\+rotation}!tree.\+h@{tree.\+h}}
+\subsubsection[{\texorpdfstring{tree\+\_\+rotation(\+Tree tree, double x, double y, double z)}{tree_rotation(Tree tree, double x, double y, double z)}}]{\setlength{\rightskip}{0pt plus 5cm}void tree\+\_\+rotation (
+\begin{DoxyParamCaption}
+\item[{{\bf Tree}}]{tree, }
+\item[{double}]{x, }
+\item[{double}]{y, }
+\item[{double}]{z}
+\end{DoxyParamCaption}
+)}\hypertarget{tree_8h_a06ca6498ae84252b4427a2dc700f15d2}{}\label{tree_8h_a06ca6498ae84252b4427a2dc700f15d2}
+
+
+Perform a rotation on a C\+SG tree. 
+
+Operation will update matrix fields of the tree.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape} & C\+SG tree to modify ~\newline
+Can not take the value {\itshape N\+U\+LL} ~\newline
+Must be a valid C\+SG tree\\
+\hline
+{\em x} & Rotation angle around {\itshape x} axis\\
+\hline
+{\em y} & Rotation angle around {\itshape y} axis\\
+\hline
+{\em z} & Rotation angle around {\itshape z} axis \\
+\hline
+\end{DoxyParams}
+\index{tree.\+h@{tree.\+h}!tree\+\_\+to\+\_\+point\+\_\+cloud@{tree\+\_\+to\+\_\+point\+\_\+cloud}}
+\index{tree\+\_\+to\+\_\+point\+\_\+cloud@{tree\+\_\+to\+\_\+point\+\_\+cloud}!tree.\+h@{tree.\+h}}
+\subsubsection[{\texorpdfstring{tree\+\_\+to\+\_\+point\+\_\+cloud(\+Tree tree, int density)}{tree_to_point_cloud(Tree tree, int density)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Point\+Cloud}$\ast$ tree\+\_\+to\+\_\+point\+\_\+cloud (
+\begin{DoxyParamCaption}
+\item[{{\bf Tree}}]{tree, }
+\item[{int}]{density}
+\end{DoxyParamCaption}
+)}\hypertarget{tree_8h_a83d75ed9c3a3d3ae5c017838c19323b1}{}\label{tree_8h_a83d75ed9c3a3d3ae5c017838c19323b1}
+
+
+Convert a C\+SG tree to a point cloud. 
+
+This function is necessary in order to be able to the render a C\+SG tree. This function allocate some memory that need to be freed with {\itshape point\+\_\+cloud\+\_\+free}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape} & C\+SG tree to convert ~\newline
+Can not take the value {\itshape N\+U\+LL} ~\newline
+Must be a valid C\+SG tree\\
+\hline
+{\em density} & Point density per unit area ~\newline
+Must be strictly positive\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the allocated point cloud 
+\end{DoxyReturn}
+\index{tree.\+h@{tree.\+h}!tree\+\_\+translation@{tree\+\_\+translation}}
+\index{tree\+\_\+translation@{tree\+\_\+translation}!tree.\+h@{tree.\+h}}
+\subsubsection[{\texorpdfstring{tree\+\_\+translation(\+Tree tree, double x, double y, double z)}{tree_translation(Tree tree, double x, double y, double z)}}]{\setlength{\rightskip}{0pt plus 5cm}void tree\+\_\+translation (
+\begin{DoxyParamCaption}
+\item[{{\bf Tree}}]{tree, }
+\item[{double}]{x, }
+\item[{double}]{y, }
+\item[{double}]{z}
+\end{DoxyParamCaption}
+)}\hypertarget{tree_8h_a88560e0ec370059ab261331d1a09ea9e}{}\label{tree_8h_a88560e0ec370059ab261331d1a09ea9e}
+
+
+Perform a translation on a C\+SG tree. 
+
+Operation will update matrix fields of the tree.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape} & C\+SG tree to modify ~\newline
+Can not take the value {\itshape N\+U\+LL} ~\newline
+Must be a valid C\+SG tree\\
+\hline
+{\em x} & Translation factor on {\itshape x} axis\\
+\hline
+{\em y} & Translation factor on {\itshape y} axis\\
+\hline
+{\em z} & Translation factor on {\itshape z} axis \\
+\hline
+\end{DoxyParams}

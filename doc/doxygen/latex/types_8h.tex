@@ -1,0 +1,1008 @@
+\hypertarget{types_8h}{}\section{include/types.h File Reference}
+\label{types_8h}\index{include/types.\+h@{include/types.\+h}}
+
+
+basic operations management module  
+
+
+{\ttfamily \#include $<$math.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+Include dependency graph for types.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{types_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{types_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{types_8h_a598a3330b3c21701223ee0ca14316eca}{PI}~3.\+1415926535897932384626433832795\hypertarget{types_8h_a598a3330b3c21701223ee0ca14316eca}{}\label{types_8h_a598a3330b3c21701223ee0ca14316eca}
+
+\begin{DoxyCompactList}\small\item\em Value of pi. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_adc79c67a861395580961f87d80f38483}{S\+Q\+U\+A\+RE}(a)~((a)$\ast$(a))\hypertarget{types_8h_adc79c67a861395580961f87d80f38483}{}\label{types_8h_adc79c67a861395580961f87d80f38483}
+
+\begin{DoxyCompactList}\small\item\em Macro to compute square value. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_a4887ceeae88266064841cbbc11ef8b53}{M\+I\+N3}(a,  b,  c)~(((a)$<$(b))?(((a)$<$(c))?(a)\+:(c))\+:(((b)$<$(c))?(b)\+:(c)))\hypertarget{types_8h_a4887ceeae88266064841cbbc11ef8b53}{}\label{types_8h_a4887ceeae88266064841cbbc11ef8b53}
+
+\begin{DoxyCompactList}\small\item\em Macro to compute the minimum of 3 numbers. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_a37c6d7fcb9c177c308ef38e1d51d35e3}{M\+A\+X3}(a,  b,  c)~(((a)$>$(b))?(((a)$>$(c))?(a)\+:(c))\+:(((b)$>$(c))?(b)\+:(c)))\hypertarget{types_8h_a37c6d7fcb9c177c308ef38e1d51d35e3}{}\label{types_8h_a37c6d7fcb9c177c308ef38e1d51d35e3}
+
+\begin{DoxyCompactList}\small\item\em Macro to compute the maximum of 3 numbers. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_aceb8d2eb1bd7b0cc483838df3950a6c2}{color4\+\_\+set}(color,  r,  g,  b,  a)
+\begin{DoxyCompactList}\small\item\em Set the values of a color. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_a424599ea02cabdb5652b4874b2b662c3}{color4\+\_\+copy}(color1,  color2)
+\begin{DoxyCompactList}\small\item\em Copy a color. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_a325390279657de3053b53634d0121058}{color4\+\_\+scale}(color,  s)
+\begin{DoxyCompactList}\small\item\em Scale a color. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_a0e6507d156017a87d6e28b776ea163bd}{coord3\+\_\+get\+\_\+x}(c)~((c)\mbox{[}0\mbox{]})
+\begin{DoxyCompactList}\small\item\em Get the {\itshape x} value of the coordinate. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_aa2df190eca61e8a453cf5d0693194561}{coord3\+\_\+get\+\_\+y}(c)~((c)\mbox{[}1\mbox{]})
+\begin{DoxyCompactList}\small\item\em Get the {\itshape y} value of the coordinate. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_ace10a3a665f571c0c3b392c1d18ec793}{coord3\+\_\+get\+\_\+z}(c)~((c)\mbox{[}2\mbox{]})
+\begin{DoxyCompactList}\small\item\em Get the {\itshape z} value of the coordinate. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_a81f2675fdce2bd8c7f12d794f9026f7d}{coord3\+\_\+set}(c,  x,  y,  z)
+\begin{DoxyCompactList}\small\item\em Set the values of a coordinate. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_a5c1dbd92d1b9987c966a1375be7103d7}{coord3\+\_\+copy}(c1,  c2)
+\begin{DoxyCompactList}\small\item\em Copy a coordinate. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_a734a94bc6b27d684511f599add38db54}{coord3\+\_\+scale}(c,  s)
+\begin{DoxyCompactList}\small\item\em Scale a coordinate. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_a4b91fdc5bc65c41a9200e0899ac3b9ac}{point3\+\_\+get\+\_\+x}(p)~(\hyperlink{types_8h_a0e6507d156017a87d6e28b776ea163bd}{coord3\+\_\+get\+\_\+x}(p))
+\begin{DoxyCompactList}\small\item\em Get the {\itshape x} value of the point. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_a7fd5ddbe671c68fd2db9a305cda24f03}{point3\+\_\+get\+\_\+y}(p)~(\hyperlink{types_8h_aa2df190eca61e8a453cf5d0693194561}{coord3\+\_\+get\+\_\+y}(p))
+\begin{DoxyCompactList}\small\item\em Get the {\itshape y} value of the point. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_aab9c252b6500d561b325a730b07f5c52}{point3\+\_\+get\+\_\+z}(p)~(\hyperlink{types_8h_ace10a3a665f571c0c3b392c1d18ec793}{coord3\+\_\+get\+\_\+z}(p))
+\begin{DoxyCompactList}\small\item\em Get the {\itshape z} value of the point. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_a00c22f58e83df581b700ab32475be0dc}{point3\+\_\+copy}(p1,  p2)~(\hyperlink{types_8h_a5c1dbd92d1b9987c966a1375be7103d7}{coord3\+\_\+copy}(p1, p2))
+\begin{DoxyCompactList}\small\item\em Copy a point. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_a462c456993f95e164724f36276741b87}{point3\+\_\+set}(p,  x,  y,  z)~(\hyperlink{types_8h_a81f2675fdce2bd8c7f12d794f9026f7d}{coord3\+\_\+set}(p, x, y, z))
+\begin{DoxyCompactList}\small\item\em Set the values of a point. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_a3136eab3453fdb656783f4690ef6adf7}{point3\+\_\+from\+\_\+to\+\_\+vector}(p1,  p2)
+\begin{DoxyCompactList}\small\item\em Compute the vector between two points. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_a2a924158373bde7181e6b522a11aef6a}{vec3\+\_\+get\+\_\+x}(v)~(\hyperlink{types_8h_a0e6507d156017a87d6e28b776ea163bd}{coord3\+\_\+get\+\_\+x}(v))
+\begin{DoxyCompactList}\small\item\em Get the {\itshape x} value of the vector. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_a003ad5286beb42db2625e0b4fd72407f}{vec3\+\_\+get\+\_\+y}(v)~(\hyperlink{types_8h_aa2df190eca61e8a453cf5d0693194561}{coord3\+\_\+get\+\_\+y}(v))
+\begin{DoxyCompactList}\small\item\em Get the {\itshape y} value of the vector. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_ac31f9c62ed1557eef70c2b5c8e6283ba}{vec3\+\_\+get\+\_\+z}(v)~(\hyperlink{types_8h_ace10a3a665f571c0c3b392c1d18ec793}{coord3\+\_\+get\+\_\+z}(v))
+\begin{DoxyCompactList}\small\item\em Get the {\itshape z} value of the vector. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_a2758d5b0fcab1709d6a91e516d065fcb}{vec3\+\_\+copy}(v1,  v2)~(\hyperlink{types_8h_a5c1dbd92d1b9987c966a1375be7103d7}{coord3\+\_\+copy}(v1, v2))
+\begin{DoxyCompactList}\small\item\em Copy a vector. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_ab0927a15b4cf77b9f8234ac9004cbe13}{vec3\+\_\+set}(v,  x,  y,  z)~(\hyperlink{types_8h_a81f2675fdce2bd8c7f12d794f9026f7d}{coord3\+\_\+set}(v, x, y, z))
+\begin{DoxyCompactList}\small\item\em Set the values of a vector. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_aef59c6d3dda785a9de5fccdefc735f94}{vec3\+\_\+scale}(v,  s)~(\hyperlink{types_8h_a734a94bc6b27d684511f599add38db54}{coord3\+\_\+scale}(v, s))
+\begin{DoxyCompactList}\small\item\em Scale a vector. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_a5123adaf5166cd1e8c6b1a160ffb4293}{vec3\+\_\+dot}(u,  v)~((u)\mbox{[}0\mbox{]}$\ast$(v)\mbox{[}0\mbox{]}+(u)\mbox{[}1\mbox{]}$\ast$(v)\mbox{[}1\mbox{]}+(u)\mbox{[}2\mbox{]}$\ast$(v)\mbox{[}2\mbox{]})
+\begin{DoxyCompactList}\small\item\em Compute the dot product of vectors. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_a1d194846f861cd9ac4cc54ec7032521a}{vec3\+\_\+cross}(result,  u,  v)
+\begin{DoxyCompactList}\small\item\em Compute the cross product of vectors. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_ad1ecfbb39f5318b6865b588d0f1c610b}{vec3\+\_\+norm}(v)~(sqrt(\hyperlink{types_8h_a5123adaf5166cd1e8c6b1a160ffb4293}{vec3\+\_\+dot}(v,v)))
+\begin{DoxyCompactList}\small\item\em Compute the norm of the vector. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_ac15cab5e60c70b5263110828da31896d}{mat4\+\_\+set}(m,  col,  line,  val)~((m)\mbox{[}4$\ast$(col)+(line)\mbox{]}=(val))
+\begin{DoxyCompactList}\small\item\em Set a value in the homogeneous matrix. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_a41c1afaf8c5241ce7d09fe88968202ce}{mat4\+\_\+get}(m,  col,  line)~((m)\mbox{[}4$\ast$(col)+(line)\mbox{]})
+\begin{DoxyCompactList}\small\item\em Get a value in the homogeneous matrix. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_ae494ebe1b149e5915fbc619b879ddaab}{mat4\+\_\+identity}
+\begin{DoxyCompactList}\small\item\em The indentiy homogeneous matrix. \end{DoxyCompactList}\item 
+\#define \hyperlink{types_8h_a5f4474fefdd6ab87abd602ceeac262eb}{mat4\+\_\+set\+\_\+identity}(m)
+\begin{DoxyCompactList}\small\item\em Set the identity matrix in the homogeneous matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef float \hyperlink{types_8h_a3d75ae93fc87c7ef6399af18de18ed4a}{color4}\mbox{[}4\mbox{]}
+\begin{DoxyCompactList}\small\item\em Structure defining a color. \end{DoxyCompactList}\item 
+typedef double \hyperlink{types_8h_a5f1e5af91b8468422981c7f1fa9c6b72}{coord3}\mbox{[}3\mbox{]}
+\begin{DoxyCompactList}\small\item\em Structure defining a 3D coordinate. \end{DoxyCompactList}\item 
+typedef \hyperlink{types_8h_a5f1e5af91b8468422981c7f1fa9c6b72}{coord3} \hyperlink{types_8h_a5680245085eb6c3661c1ec194979ccd2}{point3}
+\begin{DoxyCompactList}\small\item\em Structure defining a 3D point. \end{DoxyCompactList}\item 
+typedef \hyperlink{types_8h_a5f1e5af91b8468422981c7f1fa9c6b72}{coord3} \hyperlink{types_8h_a1c0f6462cae9caa5b9f49d5ffd32af60}{vec3}
+\begin{DoxyCompactList}\small\item\em Structure defining a 3D vector. \end{DoxyCompactList}\item 
+typedef double \hyperlink{types_8h_af8defaae7643cbe46b09ad8dea2eca9b}{mat4}\mbox{[}16\mbox{]}
+\begin{DoxyCompactList}\small\item\em Structure defining a 3D homogeneous matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{types_8h_ad841d2a1d1bbb9b5db0714873ae9403c}{vec3\+\_\+normalize} (\hyperlink{types_8h_a1c0f6462cae9caa5b9f49d5ffd32af60}{vec3} v)
+\begin{DoxyCompactList}\small\item\em Compute a product between a homogeneous matrix and a point. \end{DoxyCompactList}\item 
+void \hyperlink{types_8h_a7128234a520c6508abc09872e280175b}{mat4\+\_\+translation} (\hyperlink{types_8h_af8defaae7643cbe46b09ad8dea2eca9b}{mat4} m, double tx, double ty, double tz)
+\begin{DoxyCompactList}\small\item\em Compute a translation matrix. \end{DoxyCompactList}\item 
+void \hyperlink{types_8h_a4cbb4e49491fbbd534c0dcb6e7e7f7e5}{mat4\+\_\+homothety} (\hyperlink{types_8h_af8defaae7643cbe46b09ad8dea2eca9b}{mat4} m, double hx, double hy, double hz)
+\begin{DoxyCompactList}\small\item\em Compute a homothety matrix. \end{DoxyCompactList}\item 
+void \hyperlink{types_8h_a587f38fa8f5678c880de6c9c6be6b961}{mat4\+\_\+rotation\+\_\+x} (\hyperlink{types_8h_af8defaae7643cbe46b09ad8dea2eca9b}{mat4} m, double alpha)
+\begin{DoxyCompactList}\small\item\em Compute a rotation matrix around x axis. \end{DoxyCompactList}\item 
+void \hyperlink{types_8h_a701aa0608f011dbe678ef2bc47027ace}{mat4\+\_\+rotation\+\_\+y} (\hyperlink{types_8h_af8defaae7643cbe46b09ad8dea2eca9b}{mat4} m, double alpha)
+\begin{DoxyCompactList}\small\item\em Compute a rotation matrix around y axis. \end{DoxyCompactList}\item 
+void \hyperlink{types_8h_acb138034ba4797bfdd0b4ae27407af43}{mat4\+\_\+rotation\+\_\+z} (\hyperlink{types_8h_af8defaae7643cbe46b09ad8dea2eca9b}{mat4} m, double alpha)
+\begin{DoxyCompactList}\small\item\em Compute a rotation matrix around z axis. \end{DoxyCompactList}\item 
+void \hyperlink{types_8h_af07c7e092abda85a8c827557225ff99c}{mat4\+\_\+product\+\_\+mat4} (\hyperlink{types_8h_af8defaae7643cbe46b09ad8dea2eca9b}{mat4} m\+\_\+result, \hyperlink{types_8h_af8defaae7643cbe46b09ad8dea2eca9b}{mat4} m1, \hyperlink{types_8h_af8defaae7643cbe46b09ad8dea2eca9b}{mat4} m2)
+\begin{DoxyCompactList}\small\item\em Compute a product between homogeneous matrices. \end{DoxyCompactList}\item 
+void \hyperlink{types_8h_ad20035b6b8a9f3aa2dbb128ae5d8904a}{mat4\+\_\+product\+\_\+vec3} (\hyperlink{types_8h_a1c0f6462cae9caa5b9f49d5ffd32af60}{vec3} v\+\_\+result, \hyperlink{types_8h_af8defaae7643cbe46b09ad8dea2eca9b}{mat4} m, \hyperlink{types_8h_a1c0f6462cae9caa5b9f49d5ffd32af60}{vec3} v)
+\begin{DoxyCompactList}\small\item\em Compute a product between a homogeneous matrix and a vector. \end{DoxyCompactList}\item 
+void \hyperlink{types_8h_a29167f1e556ed3bfb7cbc24fef89690a}{mat4\+\_\+product\+\_\+point3} (\hyperlink{types_8h_a5680245085eb6c3661c1ec194979ccd2}{point3} p\+\_\+result, \hyperlink{types_8h_af8defaae7643cbe46b09ad8dea2eca9b}{mat4} m, \hyperlink{types_8h_a5680245085eb6c3661c1ec194979ccd2}{point3} p)
+\begin{DoxyCompactList}\small\item\em Compute a product between a homogeneous matrix and a point. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+basic operations management module 
+
+
+
+\subsection{Macro Definition Documentation}
+\index{types.\+h@{types.\+h}!color4\+\_\+copy@{color4\+\_\+copy}}
+\index{color4\+\_\+copy@{color4\+\_\+copy}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{color4\+\_\+copy}{color4_copy}}]{\setlength{\rightskip}{0pt plus 5cm}\#define color4\+\_\+copy(
+\begin{DoxyParamCaption}
+\item[{}]{color1, }
+\item[{}]{color2}
+\end{DoxyParamCaption}
+)}\hypertarget{types_8h_a424599ea02cabdb5652b4874b2b662c3}{}\label{types_8h_a424599ea02cabdb5652b4874b2b662c3}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+((color1)[0]=(color2)[0],\(\backslash\)
+                                     (color1)[1]=(color2)[1],\(\backslash\)
+                                     (color1)[2]=(color2)[2],\(\backslash\)
+                                     (color1)[3]=(color2)[3])
+\end{DoxyCode}
+
+
+Copy a color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color1} & Color to modify\\
+\hline
+{\em color2} & Color to copy \\
+\hline
+\end{DoxyParams}
+\index{types.\+h@{types.\+h}!color4\+\_\+scale@{color4\+\_\+scale}}
+\index{color4\+\_\+scale@{color4\+\_\+scale}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{color4\+\_\+scale}{color4_scale}}]{\setlength{\rightskip}{0pt plus 5cm}\#define color4\+\_\+scale(
+\begin{DoxyParamCaption}
+\item[{}]{color, }
+\item[{}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{types_8h_a325390279657de3053b53634d0121058}{}\label{types_8h_a325390279657de3053b53634d0121058}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{(color)[0]*s,\(\backslash\)
+                               (color)[1]*s,\(\backslash\)
+                               (color)[2]*s,\(\backslash\)
+                               (color)[3]*s\}
+\end{DoxyCode}
+
+
+Scale a color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Color to modify\\
+\hline
+{\em s} & Scaling factor\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a scaled color 
+\end{DoxyReturn}
+\index{types.\+h@{types.\+h}!color4\+\_\+set@{color4\+\_\+set}}
+\index{color4\+\_\+set@{color4\+\_\+set}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{color4\+\_\+set}{color4_set}}]{\setlength{\rightskip}{0pt plus 5cm}\#define color4\+\_\+set(
+\begin{DoxyParamCaption}
+\item[{}]{color, }
+\item[{}]{r, }
+\item[{}]{g, }
+\item[{}]{b, }
+\item[{}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{types_8h_aceb8d2eb1bd7b0cc483838df3950a6c2}{}\label{types_8h_aceb8d2eb1bd7b0cc483838df3950a6c2}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+((color)[0]=(r),\(\backslash\)
+                                   (color)[1]=(g),\(\backslash\)
+                                   (color)[2]=(b),\(\backslash\)
+                                   (color)[3]=(a))
+\end{DoxyCode}
+
+
+Set the values of a color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Color to modify\\
+\hline
+{\em r} & Red value of color\\
+\hline
+{\em r} & Green value of color\\
+\hline
+{\em r} & Blue value of color\\
+\hline
+{\em a} & Alpha value of color \\
+\hline
+\end{DoxyParams}
+\index{types.\+h@{types.\+h}!coord3\+\_\+copy@{coord3\+\_\+copy}}
+\index{coord3\+\_\+copy@{coord3\+\_\+copy}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{coord3\+\_\+copy}{coord3_copy}}]{\setlength{\rightskip}{0pt plus 5cm}\#define coord3\+\_\+copy(
+\begin{DoxyParamCaption}
+\item[{}]{c1, }
+\item[{}]{c2}
+\end{DoxyParamCaption}
+)}\hypertarget{types_8h_a5c1dbd92d1b9987c966a1375be7103d7}{}\label{types_8h_a5c1dbd92d1b9987c966a1375be7103d7}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+((c1)[0]=(c2)[0],\(\backslash\)
+                             (c1)[1]=(c2)[1],\(\backslash\)
+                             (c1)[2]=(c2)[2])
+\end{DoxyCode}
+
+
+Copy a coordinate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c1} & Coordinate to modify\\
+\hline
+{\em c2} & Coordinate to copy \\
+\hline
+\end{DoxyParams}
+\index{types.\+h@{types.\+h}!coord3\+\_\+get\+\_\+x@{coord3\+\_\+get\+\_\+x}}
+\index{coord3\+\_\+get\+\_\+x@{coord3\+\_\+get\+\_\+x}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{coord3\+\_\+get\+\_\+x}{coord3_get_x}}]{\setlength{\rightskip}{0pt plus 5cm}\#define coord3\+\_\+get\+\_\+x(
+\begin{DoxyParamCaption}
+\item[{}]{c}
+\end{DoxyParamCaption}
+)~((c)\mbox{[}0\mbox{]})}\hypertarget{types_8h_a0e6507d156017a87d6e28b776ea163bd}{}\label{types_8h_a0e6507d156017a87d6e28b776ea163bd}
+
+
+Get the {\itshape x} value of the coordinate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Coordinate\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the {\itshape x} value of the coordinate 
+\end{DoxyReturn}
+\index{types.\+h@{types.\+h}!coord3\+\_\+get\+\_\+y@{coord3\+\_\+get\+\_\+y}}
+\index{coord3\+\_\+get\+\_\+y@{coord3\+\_\+get\+\_\+y}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{coord3\+\_\+get\+\_\+y}{coord3_get_y}}]{\setlength{\rightskip}{0pt plus 5cm}\#define coord3\+\_\+get\+\_\+y(
+\begin{DoxyParamCaption}
+\item[{}]{c}
+\end{DoxyParamCaption}
+)~((c)\mbox{[}1\mbox{]})}\hypertarget{types_8h_aa2df190eca61e8a453cf5d0693194561}{}\label{types_8h_aa2df190eca61e8a453cf5d0693194561}
+
+
+Get the {\itshape y} value of the coordinate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Coordinate\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the {\itshape y} value of the coordinate 
+\end{DoxyReturn}
+\index{types.\+h@{types.\+h}!coord3\+\_\+get\+\_\+z@{coord3\+\_\+get\+\_\+z}}
+\index{coord3\+\_\+get\+\_\+z@{coord3\+\_\+get\+\_\+z}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{coord3\+\_\+get\+\_\+z}{coord3_get_z}}]{\setlength{\rightskip}{0pt plus 5cm}\#define coord3\+\_\+get\+\_\+z(
+\begin{DoxyParamCaption}
+\item[{}]{c}
+\end{DoxyParamCaption}
+)~((c)\mbox{[}2\mbox{]})}\hypertarget{types_8h_ace10a3a665f571c0c3b392c1d18ec793}{}\label{types_8h_ace10a3a665f571c0c3b392c1d18ec793}
+
+
+Get the {\itshape z} value of the coordinate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & Coordinate\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the {\itshape z} value of the coordinate 
+\end{DoxyReturn}
+\index{types.\+h@{types.\+h}!coord3\+\_\+scale@{coord3\+\_\+scale}}
+\index{coord3\+\_\+scale@{coord3\+\_\+scale}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{coord3\+\_\+scale}{coord3_scale}}]{\setlength{\rightskip}{0pt plus 5cm}\#define coord3\+\_\+scale(
+\begin{DoxyParamCaption}
+\item[{}]{c, }
+\item[{}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{types_8h_a734a94bc6b27d684511f599add38db54}{}\label{types_8h_a734a94bc6b27d684511f599add38db54}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{(c)[0]*s,\(\backslash\)
+                            (c)[1]*s,\(\backslash\)
+                            (c)[2]*s\}
+\end{DoxyCode}
+
+
+Scale a coordinate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Coordinate to modify\\
+\hline
+{\em s} & Scaling factor\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a scaled coordinate 
+\end{DoxyReturn}
+\index{types.\+h@{types.\+h}!coord3\+\_\+set@{coord3\+\_\+set}}
+\index{coord3\+\_\+set@{coord3\+\_\+set}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{coord3\+\_\+set}{coord3_set}}]{\setlength{\rightskip}{0pt plus 5cm}\#define coord3\+\_\+set(
+\begin{DoxyParamCaption}
+\item[{}]{c, }
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{z}
+\end{DoxyParamCaption}
+)}\hypertarget{types_8h_a81f2675fdce2bd8c7f12d794f9026f7d}{}\label{types_8h_a81f2675fdce2bd8c7f12d794f9026f7d}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+((c)[0]=(x),\(\backslash\)
+                                (c)[1]=(y),\(\backslash\)
+                                (c)[2]=(z))
+\end{DoxyCode}
+
+
+Set the values of a coordinate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Coordinate to modify\\
+\hline
+{\em x} & Value of the coordinate on {\itshape x} axis\\
+\hline
+{\em y} & Value of the coordinate on {\itshape y} axis\\
+\hline
+{\em z} & Value of the coordinate on {\itshape z} axis \\
+\hline
+\end{DoxyParams}
+\index{types.\+h@{types.\+h}!mat4\+\_\+get@{mat4\+\_\+get}}
+\index{mat4\+\_\+get@{mat4\+\_\+get}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{mat4\+\_\+get}{mat4_get}}]{\setlength{\rightskip}{0pt plus 5cm}\#define mat4\+\_\+get(
+\begin{DoxyParamCaption}
+\item[{}]{m, }
+\item[{}]{col, }
+\item[{}]{line}
+\end{DoxyParamCaption}
+)~((m)\mbox{[}4$\ast$(col)+(line)\mbox{]})}\hypertarget{types_8h_a41c1afaf8c5241ce7d09fe88968202ce}{}\label{types_8h_a41c1afaf8c5241ce7d09fe88968202ce}
+
+
+Get a value in the homogeneous matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & Homogeneous matrix\\
+\hline
+{\em col} & Column index\\
+\hline
+{\em col} & Line index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+value of the homogeneous matrix at given indices 
+\end{DoxyReturn}
+\index{types.\+h@{types.\+h}!mat4\+\_\+identity@{mat4\+\_\+identity}}
+\index{mat4\+\_\+identity@{mat4\+\_\+identity}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{mat4\+\_\+identity}{mat4_identity}}]{\setlength{\rightskip}{0pt plus 5cm}\#define mat4\+\_\+identity}\hypertarget{types_8h_ae494ebe1b149e5915fbc619b879ddaab}{}\label{types_8h_ae494ebe1b149e5915fbc619b879ddaab}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{1.,0.,0.,0.,\(\backslash\)
+                       0.,1.,0.,0.,\(\backslash\)
+                       0.,0.,1.,0.,\(\backslash\)
+                       0.,0.,0.,1.\}
+\end{DoxyCode}
+
+
+The indentiy homogeneous matrix. 
+
+\index{types.\+h@{types.\+h}!mat4\+\_\+set@{mat4\+\_\+set}}
+\index{mat4\+\_\+set@{mat4\+\_\+set}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{mat4\+\_\+set}{mat4_set}}]{\setlength{\rightskip}{0pt plus 5cm}\#define mat4\+\_\+set(
+\begin{DoxyParamCaption}
+\item[{}]{m, }
+\item[{}]{col, }
+\item[{}]{line, }
+\item[{}]{val}
+\end{DoxyParamCaption}
+)~((m)\mbox{[}4$\ast$(col)+(line)\mbox{]}=(val))}\hypertarget{types_8h_ac15cab5e60c70b5263110828da31896d}{}\label{types_8h_ac15cab5e60c70b5263110828da31896d}
+
+
+Set a value in the homogeneous matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & Homogeneous matrix to modify\\
+\hline
+{\em col} & Column index\\
+\hline
+{\em col} & Line index\\
+\hline
+{\em val} & Value to set \\
+\hline
+\end{DoxyParams}
+\index{types.\+h@{types.\+h}!mat4\+\_\+set\+\_\+identity@{mat4\+\_\+set\+\_\+identity}}
+\index{mat4\+\_\+set\+\_\+identity@{mat4\+\_\+set\+\_\+identity}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{mat4\+\_\+set\+\_\+identity}{mat4_set_identity}}]{\setlength{\rightskip}{0pt plus 5cm}\#define mat4\+\_\+set\+\_\+identity(
+\begin{DoxyParamCaption}
+\item[{}]{m}
+\end{DoxyParamCaption}
+)}\hypertarget{types_8h_a5f4474fefdd6ab87abd602ceeac262eb}{}\label{types_8h_a5f4474fefdd6ab87abd602ceeac262eb}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+(memset((m), 0, \textcolor{keyword}{sizeof}(\hyperlink{types_8h_af8defaae7643cbe46b09ad8dea2eca9b}{mat4})),\(\backslash\)
+                              (m)[0]=(m)[5]=(m)[10]=(m)[15]=1)
+\end{DoxyCode}
+
+
+Set the identity matrix in the homogeneous matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & Homogeneous matrix to modify \\
+\hline
+\end{DoxyParams}
+\index{types.\+h@{types.\+h}!point3\+\_\+copy@{point3\+\_\+copy}}
+\index{point3\+\_\+copy@{point3\+\_\+copy}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{point3\+\_\+copy}{point3_copy}}]{\setlength{\rightskip}{0pt plus 5cm}\#define point3\+\_\+copy(
+\begin{DoxyParamCaption}
+\item[{}]{p1, }
+\item[{}]{p2}
+\end{DoxyParamCaption}
+)~({\bf coord3\+\_\+copy}(p1, p2))}\hypertarget{types_8h_a00c22f58e83df581b700ab32475be0dc}{}\label{types_8h_a00c22f58e83df581b700ab32475be0dc}
+
+
+Copy a point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & Point to modify\\
+\hline
+{\em p2} & Point to copy \\
+\hline
+\end{DoxyParams}
+\index{types.\+h@{types.\+h}!point3\+\_\+from\+\_\+to\+\_\+vector@{point3\+\_\+from\+\_\+to\+\_\+vector}}
+\index{point3\+\_\+from\+\_\+to\+\_\+vector@{point3\+\_\+from\+\_\+to\+\_\+vector}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{point3\+\_\+from\+\_\+to\+\_\+vector}{point3_from_to_vector}}]{\setlength{\rightskip}{0pt plus 5cm}\#define point3\+\_\+from\+\_\+to\+\_\+vector(
+\begin{DoxyParamCaption}
+\item[{}]{p1, }
+\item[{}]{p2}
+\end{DoxyParamCaption}
+)}\hypertarget{types_8h_a3136eab3453fdb656783f4690ef6adf7}{}\label{types_8h_a3136eab3453fdb656783f4690ef6adf7}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{(p2)[0] - (p1)[0],\(\backslash\)
+                                       (p2)[1] - (p1)[1],\(\backslash\)
+                                       (p2)[2] - (p1)[2]\}
+\end{DoxyCode}
+
+
+Compute the vector between two points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & The {\itshape from} point\\
+\hline
+{\em p2} & The {\itshape to} point\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the vector going from p1 to p2 
+\end{DoxyReturn}
+\index{types.\+h@{types.\+h}!point3\+\_\+get\+\_\+x@{point3\+\_\+get\+\_\+x}}
+\index{point3\+\_\+get\+\_\+x@{point3\+\_\+get\+\_\+x}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{point3\+\_\+get\+\_\+x}{point3_get_x}}]{\setlength{\rightskip}{0pt plus 5cm}\#define point3\+\_\+get\+\_\+x(
+\begin{DoxyParamCaption}
+\item[{}]{p}
+\end{DoxyParamCaption}
+)~({\bf coord3\+\_\+get\+\_\+x}(p))}\hypertarget{types_8h_a4b91fdc5bc65c41a9200e0899ac3b9ac}{}\label{types_8h_a4b91fdc5bc65c41a9200e0899ac3b9ac}
+
+
+Get the {\itshape x} value of the point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Point\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the {\itshape x} value of the point 
+\end{DoxyReturn}
+\index{types.\+h@{types.\+h}!point3\+\_\+get\+\_\+y@{point3\+\_\+get\+\_\+y}}
+\index{point3\+\_\+get\+\_\+y@{point3\+\_\+get\+\_\+y}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{point3\+\_\+get\+\_\+y}{point3_get_y}}]{\setlength{\rightskip}{0pt plus 5cm}\#define point3\+\_\+get\+\_\+y(
+\begin{DoxyParamCaption}
+\item[{}]{p}
+\end{DoxyParamCaption}
+)~({\bf coord3\+\_\+get\+\_\+y}(p))}\hypertarget{types_8h_a7fd5ddbe671c68fd2db9a305cda24f03}{}\label{types_8h_a7fd5ddbe671c68fd2db9a305cda24f03}
+
+
+Get the {\itshape y} value of the point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Point\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the {\itshape y} value of the point 
+\end{DoxyReturn}
+\index{types.\+h@{types.\+h}!point3\+\_\+get\+\_\+z@{point3\+\_\+get\+\_\+z}}
+\index{point3\+\_\+get\+\_\+z@{point3\+\_\+get\+\_\+z}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{point3\+\_\+get\+\_\+z}{point3_get_z}}]{\setlength{\rightskip}{0pt plus 5cm}\#define point3\+\_\+get\+\_\+z(
+\begin{DoxyParamCaption}
+\item[{}]{p}
+\end{DoxyParamCaption}
+)~({\bf coord3\+\_\+get\+\_\+z}(p))}\hypertarget{types_8h_aab9c252b6500d561b325a730b07f5c52}{}\label{types_8h_aab9c252b6500d561b325a730b07f5c52}
+
+
+Get the {\itshape z} value of the point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Point\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the {\itshape z} value of the point 
+\end{DoxyReturn}
+\index{types.\+h@{types.\+h}!point3\+\_\+set@{point3\+\_\+set}}
+\index{point3\+\_\+set@{point3\+\_\+set}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{point3\+\_\+set}{point3_set}}]{\setlength{\rightskip}{0pt plus 5cm}\#define point3\+\_\+set(
+\begin{DoxyParamCaption}
+\item[{}]{p, }
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{z}
+\end{DoxyParamCaption}
+)~({\bf coord3\+\_\+set}(p, x, y, z))}\hypertarget{types_8h_a462c456993f95e164724f36276741b87}{}\label{types_8h_a462c456993f95e164724f36276741b87}
+
+
+Set the values of a point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & point to modify\\
+\hline
+{\em x} & Value of the coordinate on {\itshape x} axis\\
+\hline
+{\em y} & Value of the coordinate on {\itshape y} axis\\
+\hline
+{\em z} & Value of the coordinate on {\itshape z} axis \\
+\hline
+\end{DoxyParams}
+\index{types.\+h@{types.\+h}!vec3\+\_\+copy@{vec3\+\_\+copy}}
+\index{vec3\+\_\+copy@{vec3\+\_\+copy}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{vec3\+\_\+copy}{vec3_copy}}]{\setlength{\rightskip}{0pt plus 5cm}\#define vec3\+\_\+copy(
+\begin{DoxyParamCaption}
+\item[{}]{v1, }
+\item[{}]{v2}
+\end{DoxyParamCaption}
+)~({\bf coord3\+\_\+copy}(v1, v2))}\hypertarget{types_8h_a2758d5b0fcab1709d6a91e516d065fcb}{}\label{types_8h_a2758d5b0fcab1709d6a91e516d065fcb}
+
+
+Copy a vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v1} & Point to modify\\
+\hline
+{\em v2} & Point to copy \\
+\hline
+\end{DoxyParams}
+\index{types.\+h@{types.\+h}!vec3\+\_\+cross@{vec3\+\_\+cross}}
+\index{vec3\+\_\+cross@{vec3\+\_\+cross}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{vec3\+\_\+cross}{vec3_cross}}]{\setlength{\rightskip}{0pt plus 5cm}\#define vec3\+\_\+cross(
+\begin{DoxyParamCaption}
+\item[{}]{result, }
+\item[{}]{u, }
+\item[{}]{v}
+\end{DoxyParamCaption}
+)}\hypertarget{types_8h_a1d194846f861cd9ac4cc54ec7032521a}{}\label{types_8h_a1d194846f861cd9ac4cc54ec7032521a}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+((result)[0]=(u)[1]*(v)[2]-(u)[2]*(v)[1],\(\backslash\)
+                                  (result)[1]=(u)[2]*(v)[0]-(u)[0]*(v)[2],\(\backslash\)
+                                  (result)[2]=(u)[0]*(v)[1]-(u)[1]*(v)[0])
+\end{DoxyCode}
+
+
+Compute the cross product of vectors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & Vector\\
+\hline
+{\em v} & Vector\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the cross product 
+\end{DoxyReturn}
+\index{types.\+h@{types.\+h}!vec3\+\_\+dot@{vec3\+\_\+dot}}
+\index{vec3\+\_\+dot@{vec3\+\_\+dot}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{vec3\+\_\+dot}{vec3_dot}}]{\setlength{\rightskip}{0pt plus 5cm}\#define vec3\+\_\+dot(
+\begin{DoxyParamCaption}
+\item[{}]{u, }
+\item[{}]{v}
+\end{DoxyParamCaption}
+)~((u)\mbox{[}0\mbox{]}$\ast$(v)\mbox{[}0\mbox{]}+(u)\mbox{[}1\mbox{]}$\ast$(v)\mbox{[}1\mbox{]}+(u)\mbox{[}2\mbox{]}$\ast$(v)\mbox{[}2\mbox{]})}\hypertarget{types_8h_a5123adaf5166cd1e8c6b1a160ffb4293}{}\label{types_8h_a5123adaf5166cd1e8c6b1a160ffb4293}
+
+
+Compute the dot product of vectors. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em u} & Vector\\
+\hline
+{\em v} & Vector\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the dot product 
+\end{DoxyReturn}
+\index{types.\+h@{types.\+h}!vec3\+\_\+get\+\_\+x@{vec3\+\_\+get\+\_\+x}}
+\index{vec3\+\_\+get\+\_\+x@{vec3\+\_\+get\+\_\+x}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{vec3\+\_\+get\+\_\+x}{vec3_get_x}}]{\setlength{\rightskip}{0pt plus 5cm}\#define vec3\+\_\+get\+\_\+x(
+\begin{DoxyParamCaption}
+\item[{}]{v}
+\end{DoxyParamCaption}
+)~({\bf coord3\+\_\+get\+\_\+x}(v))}\hypertarget{types_8h_a2a924158373bde7181e6b522a11aef6a}{}\label{types_8h_a2a924158373bde7181e6b522a11aef6a}
+
+
+Get the {\itshape x} value of the vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Vector\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the {\itshape x} value of the vector 
+\end{DoxyReturn}
+\index{types.\+h@{types.\+h}!vec3\+\_\+get\+\_\+y@{vec3\+\_\+get\+\_\+y}}
+\index{vec3\+\_\+get\+\_\+y@{vec3\+\_\+get\+\_\+y}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{vec3\+\_\+get\+\_\+y}{vec3_get_y}}]{\setlength{\rightskip}{0pt plus 5cm}\#define vec3\+\_\+get\+\_\+y(
+\begin{DoxyParamCaption}
+\item[{}]{v}
+\end{DoxyParamCaption}
+)~({\bf coord3\+\_\+get\+\_\+y}(v))}\hypertarget{types_8h_a003ad5286beb42db2625e0b4fd72407f}{}\label{types_8h_a003ad5286beb42db2625e0b4fd72407f}
+
+
+Get the {\itshape y} value of the vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Vector\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the {\itshape y} value of the vector 
+\end{DoxyReturn}
+\index{types.\+h@{types.\+h}!vec3\+\_\+get\+\_\+z@{vec3\+\_\+get\+\_\+z}}
+\index{vec3\+\_\+get\+\_\+z@{vec3\+\_\+get\+\_\+z}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{vec3\+\_\+get\+\_\+z}{vec3_get_z}}]{\setlength{\rightskip}{0pt plus 5cm}\#define vec3\+\_\+get\+\_\+z(
+\begin{DoxyParamCaption}
+\item[{}]{v}
+\end{DoxyParamCaption}
+)~({\bf coord3\+\_\+get\+\_\+z}(v))}\hypertarget{types_8h_ac31f9c62ed1557eef70c2b5c8e6283ba}{}\label{types_8h_ac31f9c62ed1557eef70c2b5c8e6283ba}
+
+
+Get the {\itshape z} value of the vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Vector\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the {\itshape z} value of the vector 
+\end{DoxyReturn}
+\index{types.\+h@{types.\+h}!vec3\+\_\+norm@{vec3\+\_\+norm}}
+\index{vec3\+\_\+norm@{vec3\+\_\+norm}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{vec3\+\_\+norm}{vec3_norm}}]{\setlength{\rightskip}{0pt plus 5cm}\#define vec3\+\_\+norm(
+\begin{DoxyParamCaption}
+\item[{}]{v}
+\end{DoxyParamCaption}
+)~(sqrt({\bf vec3\+\_\+dot}(v,v)))}\hypertarget{types_8h_ad1ecfbb39f5318b6865b588d0f1c610b}{}\label{types_8h_ad1ecfbb39f5318b6865b588d0f1c610b}
+
+
+Compute the norm of the vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Vector\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the norm of the vector 
+\end{DoxyReturn}
+\index{types.\+h@{types.\+h}!vec3\+\_\+scale@{vec3\+\_\+scale}}
+\index{vec3\+\_\+scale@{vec3\+\_\+scale}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{vec3\+\_\+scale}{vec3_scale}}]{\setlength{\rightskip}{0pt plus 5cm}\#define vec3\+\_\+scale(
+\begin{DoxyParamCaption}
+\item[{}]{v, }
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~({\bf coord3\+\_\+scale}(v, s))}\hypertarget{types_8h_aef59c6d3dda785a9de5fccdefc735f94}{}\label{types_8h_aef59c6d3dda785a9de5fccdefc735f94}
+
+
+Scale a vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Vector to modify\\
+\hline
+{\em s} & Scaling factor\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a scaled vector 
+\end{DoxyReturn}
+\index{types.\+h@{types.\+h}!vec3\+\_\+set@{vec3\+\_\+set}}
+\index{vec3\+\_\+set@{vec3\+\_\+set}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{vec3\+\_\+set}{vec3_set}}]{\setlength{\rightskip}{0pt plus 5cm}\#define vec3\+\_\+set(
+\begin{DoxyParamCaption}
+\item[{}]{v, }
+\item[{}]{x, }
+\item[{}]{y, }
+\item[{}]{z}
+\end{DoxyParamCaption}
+)~({\bf coord3\+\_\+set}(v, x, y, z))}\hypertarget{types_8h_ab0927a15b4cf77b9f8234ac9004cbe13}{}\label{types_8h_ab0927a15b4cf77b9f8234ac9004cbe13}
+
+
+Set the values of a vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Vector to modify\\
+\hline
+{\em x} & Value of the vector on {\itshape x} axis\\
+\hline
+{\em y} & Value of the vector on {\itshape y} axis\\
+\hline
+{\em z} & Value of the vector on {\itshape z} axis \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Typedef Documentation}
+\index{types.\+h@{types.\+h}!color4@{color4}}
+\index{color4@{color4}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{color4}{color4}}]{\setlength{\rightskip}{0pt plus 5cm}typedef float color4\mbox{[}4\mbox{]}}\hypertarget{types_8h_a3d75ae93fc87c7ef6399af18de18ed4a}{}\label{types_8h_a3d75ae93fc87c7ef6399af18de18ed4a}
+
+
+Structure defining a color. 
+
+A color is a R\+G\+BA array. \index{types.\+h@{types.\+h}!coord3@{coord3}}
+\index{coord3@{coord3}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{coord3}{coord3}}]{\setlength{\rightskip}{0pt plus 5cm}typedef double coord3\mbox{[}3\mbox{]}}\hypertarget{types_8h_a5f1e5af91b8468422981c7f1fa9c6b72}{}\label{types_8h_a5f1e5af91b8468422981c7f1fa9c6b72}
+
+
+Structure defining a 3D coordinate. 
+
+A 3D coordinate is a X,Y,Z array. \index{types.\+h@{types.\+h}!mat4@{mat4}}
+\index{mat4@{mat4}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{mat4}{mat4}}]{\setlength{\rightskip}{0pt plus 5cm}typedef double mat4\mbox{[}16\mbox{]}}\hypertarget{types_8h_af8defaae7643cbe46b09ad8dea2eca9b}{}\label{types_8h_af8defaae7643cbe46b09ad8dea2eca9b}
+
+
+Structure defining a 3D homogeneous matrix. 
+
+A 3D homogeneous matrix is a 1D plain array containing the values of the matrix in a column-\/major order. \index{types.\+h@{types.\+h}!point3@{point3}}
+\index{point3@{point3}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{point3}{point3}}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf coord3} {\bf point3}}\hypertarget{types_8h_a5680245085eb6c3661c1ec194979ccd2}{}\label{types_8h_a5680245085eb6c3661c1ec194979ccd2}
+
+
+Structure defining a 3D point. 
+
+A 3D point is a 3D coordinate. \index{types.\+h@{types.\+h}!vec3@{vec3}}
+\index{vec3@{vec3}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{vec3}{vec3}}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf coord3} {\bf vec3}}\hypertarget{types_8h_a1c0f6462cae9caa5b9f49d5ffd32af60}{}\label{types_8h_a1c0f6462cae9caa5b9f49d5ffd32af60}
+
+
+Structure defining a 3D vector. 
+
+A 3D vector is a 3D coordinate. 
+
+\subsection{Function Documentation}
+\index{types.\+h@{types.\+h}!mat4\+\_\+homothety@{mat4\+\_\+homothety}}
+\index{mat4\+\_\+homothety@{mat4\+\_\+homothety}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{mat4\+\_\+homothety(mat4 m, double hx, double hy, double hz)}{mat4_homothety(mat4 m, double hx, double hy, double hz)}}]{\setlength{\rightskip}{0pt plus 5cm}void mat4\+\_\+homothety (
+\begin{DoxyParamCaption}
+\item[{{\bf mat4}}]{m, }
+\item[{double}]{hx, }
+\item[{double}]{hy, }
+\item[{double}]{hz}
+\end{DoxyParamCaption}
+)}\hypertarget{types_8h_a4cbb4e49491fbbd534c0dcb6e7e7f7e5}{}\label{types_8h_a4cbb4e49491fbbd534c0dcb6e7e7f7e5}
+
+
+Compute a homothety matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & Homogeneous matrix to modify\\
+\hline
+{\em hx} & Scaling factor on {\itshape x} axis\\
+\hline
+{\em hy} & Scaling factor on {\itshape y} axis\\
+\hline
+{\em hz} & Scaling factor on {\itshape z} axis \\
+\hline
+\end{DoxyParams}
+\index{types.\+h@{types.\+h}!mat4\+\_\+product\+\_\+mat4@{mat4\+\_\+product\+\_\+mat4}}
+\index{mat4\+\_\+product\+\_\+mat4@{mat4\+\_\+product\+\_\+mat4}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{mat4\+\_\+product\+\_\+mat4(mat4 m\+\_\+result, mat4 m1, mat4 m2)}{mat4_product_mat4(mat4 m_result, mat4 m1, mat4 m2)}}]{\setlength{\rightskip}{0pt plus 5cm}void mat4\+\_\+product\+\_\+mat4 (
+\begin{DoxyParamCaption}
+\item[{{\bf mat4}}]{m\+\_\+result, }
+\item[{{\bf mat4}}]{m1, }
+\item[{{\bf mat4}}]{m2}
+\end{DoxyParamCaption}
+)}\hypertarget{types_8h_af07c7e092abda85a8c827557225ff99c}{}\label{types_8h_af07c7e092abda85a8c827557225ff99c}
+
+
+Compute a product between homogeneous matrices. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m\+\_\+result} & Homogeneous matrix to save the result\\
+\hline
+{\em m1} & Left matrix of the product\\
+\hline
+{\em m2} & Right matrix of the product \\
+\hline
+\end{DoxyParams}
+\index{types.\+h@{types.\+h}!mat4\+\_\+product\+\_\+point3@{mat4\+\_\+product\+\_\+point3}}
+\index{mat4\+\_\+product\+\_\+point3@{mat4\+\_\+product\+\_\+point3}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{mat4\+\_\+product\+\_\+point3(point3 p\+\_\+result, mat4 m, point3 p)}{mat4_product_point3(point3 p_result, mat4 m, point3 p)}}]{\setlength{\rightskip}{0pt plus 5cm}void mat4\+\_\+product\+\_\+point3 (
+\begin{DoxyParamCaption}
+\item[{{\bf point3}}]{p\+\_\+result, }
+\item[{{\bf mat4}}]{m, }
+\item[{{\bf point3}}]{p}
+\end{DoxyParamCaption}
+)}\hypertarget{types_8h_a29167f1e556ed3bfb7cbc24fef89690a}{}\label{types_8h_a29167f1e556ed3bfb7cbc24fef89690a}
+
+
+Compute a product between a homogeneous matrix and a point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+result} & Point to save the result\\
+\hline
+{\em m} & Matrix of the product\\
+\hline
+{\em p} & Point of the product \\
+\hline
+\end{DoxyParams}
+\index{types.\+h@{types.\+h}!mat4\+\_\+product\+\_\+vec3@{mat4\+\_\+product\+\_\+vec3}}
+\index{mat4\+\_\+product\+\_\+vec3@{mat4\+\_\+product\+\_\+vec3}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{mat4\+\_\+product\+\_\+vec3(vec3 v\+\_\+result, mat4 m, vec3 v)}{mat4_product_vec3(vec3 v_result, mat4 m, vec3 v)}}]{\setlength{\rightskip}{0pt plus 5cm}void mat4\+\_\+product\+\_\+vec3 (
+\begin{DoxyParamCaption}
+\item[{{\bf vec3}}]{v\+\_\+result, }
+\item[{{\bf mat4}}]{m, }
+\item[{{\bf vec3}}]{v}
+\end{DoxyParamCaption}
+)}\hypertarget{types_8h_ad20035b6b8a9f3aa2dbb128ae5d8904a}{}\label{types_8h_ad20035b6b8a9f3aa2dbb128ae5d8904a}
+
+
+Compute a product between a homogeneous matrix and a vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v\+\_\+result} & Vector to save the result\\
+\hline
+{\em m} & Matrix of the product\\
+\hline
+{\em v} & Vector of the product \\
+\hline
+\end{DoxyParams}
+\index{types.\+h@{types.\+h}!mat4\+\_\+rotation\+\_\+x@{mat4\+\_\+rotation\+\_\+x}}
+\index{mat4\+\_\+rotation\+\_\+x@{mat4\+\_\+rotation\+\_\+x}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{mat4\+\_\+rotation\+\_\+x(mat4 m, double alpha)}{mat4_rotation_x(mat4 m, double alpha)}}]{\setlength{\rightskip}{0pt plus 5cm}void mat4\+\_\+rotation\+\_\+x (
+\begin{DoxyParamCaption}
+\item[{{\bf mat4}}]{m, }
+\item[{double}]{alpha}
+\end{DoxyParamCaption}
+)}\hypertarget{types_8h_a587f38fa8f5678c880de6c9c6be6b961}{}\label{types_8h_a587f38fa8f5678c880de6c9c6be6b961}
+
+
+Compute a rotation matrix around x axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & Homogeneous matrix to modify\\
+\hline
+{\em alpha} & Rotation angle around {\itshape x} axis \\
+\hline
+\end{DoxyParams}
+\index{types.\+h@{types.\+h}!mat4\+\_\+rotation\+\_\+y@{mat4\+\_\+rotation\+\_\+y}}
+\index{mat4\+\_\+rotation\+\_\+y@{mat4\+\_\+rotation\+\_\+y}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{mat4\+\_\+rotation\+\_\+y(mat4 m, double alpha)}{mat4_rotation_y(mat4 m, double alpha)}}]{\setlength{\rightskip}{0pt plus 5cm}void mat4\+\_\+rotation\+\_\+y (
+\begin{DoxyParamCaption}
+\item[{{\bf mat4}}]{m, }
+\item[{double}]{alpha}
+\end{DoxyParamCaption}
+)}\hypertarget{types_8h_a701aa0608f011dbe678ef2bc47027ace}{}\label{types_8h_a701aa0608f011dbe678ef2bc47027ace}
+
+
+Compute a rotation matrix around y axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & Homogeneous matrix to modify\\
+\hline
+{\em alpha} & Rotation angle around {\itshape y} axis \\
+\hline
+\end{DoxyParams}
+\index{types.\+h@{types.\+h}!mat4\+\_\+rotation\+\_\+z@{mat4\+\_\+rotation\+\_\+z}}
+\index{mat4\+\_\+rotation\+\_\+z@{mat4\+\_\+rotation\+\_\+z}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{mat4\+\_\+rotation\+\_\+z(mat4 m, double alpha)}{mat4_rotation_z(mat4 m, double alpha)}}]{\setlength{\rightskip}{0pt plus 5cm}void mat4\+\_\+rotation\+\_\+z (
+\begin{DoxyParamCaption}
+\item[{{\bf mat4}}]{m, }
+\item[{double}]{alpha}
+\end{DoxyParamCaption}
+)}\hypertarget{types_8h_acb138034ba4797bfdd0b4ae27407af43}{}\label{types_8h_acb138034ba4797bfdd0b4ae27407af43}
+
+
+Compute a rotation matrix around z axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & Homogeneous matrix to modify\\
+\hline
+{\em alpha} & Rotation angle around {\itshape z} axis \\
+\hline
+\end{DoxyParams}
+\index{types.\+h@{types.\+h}!mat4\+\_\+translation@{mat4\+\_\+translation}}
+\index{mat4\+\_\+translation@{mat4\+\_\+translation}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{mat4\+\_\+translation(mat4 m, double tx, double ty, double tz)}{mat4_translation(mat4 m, double tx, double ty, double tz)}}]{\setlength{\rightskip}{0pt plus 5cm}void mat4\+\_\+translation (
+\begin{DoxyParamCaption}
+\item[{{\bf mat4}}]{m, }
+\item[{double}]{tx, }
+\item[{double}]{ty, }
+\item[{double}]{tz}
+\end{DoxyParamCaption}
+)}\hypertarget{types_8h_a7128234a520c6508abc09872e280175b}{}\label{types_8h_a7128234a520c6508abc09872e280175b}
+
+
+Compute a translation matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & Homogeneous matrix to modify\\
+\hline
+{\em tx} & Translation factor on {\itshape x} axis\\
+\hline
+{\em ty} & Translation factor on {\itshape y} axis\\
+\hline
+{\em tz} & Translation factor on {\itshape z} axis \\
+\hline
+\end{DoxyParams}
+\index{types.\+h@{types.\+h}!vec3\+\_\+normalize@{vec3\+\_\+normalize}}
+\index{vec3\+\_\+normalize@{vec3\+\_\+normalize}!types.\+h@{types.\+h}}
+\subsubsection[{\texorpdfstring{vec3\+\_\+normalize(vec3 v)}{vec3_normalize(vec3 v)}}]{\setlength{\rightskip}{0pt plus 5cm}void vec3\+\_\+normalize (
+\begin{DoxyParamCaption}
+\item[{{\bf vec3}}]{v}
+\end{DoxyParamCaption}
+)}\hypertarget{types_8h_ad841d2a1d1bbb9b5db0714873ae9403c}{}\label{types_8h_ad841d2a1d1bbb9b5db0714873ae9403c}
+
+
+Compute a product between a homogeneous matrix and a point. 
+
+The vector is normalized in place.
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & Vector to normalize \\
+\hline
+\end{DoxyParams}

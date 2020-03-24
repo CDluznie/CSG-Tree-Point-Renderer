@@ -1,0 +1,77 @@
+\hypertarget{struct_shape}{}\section{Shape Struct Reference}
+\label{struct_shape}\index{Shape@{Shape}}
+
+
+Structure defining a canonical shape.  
+
+
+
+
+{\ttfamily \#include $<$shape.\+h$>$}
+
+
+
+Collaboration diagram for Shape\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{struct_shape__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{shape_8h_a5a4538eeab397888d88a4eefcc5a1345}{Shape\+Type} \hyperlink{struct_shape_aa987badbde9a01a186366bf0bb305a4b}{type}
+\item 
+\hyperlink{types_8h_a3d75ae93fc87c7ef6399af18de18ed4a}{color4} \hyperlink{struct_shape_a9c2cebcefe8a6bf5fe495236373a6b66}{color}
+\item 
+double \hyperlink{struct_shape_a9672a1c41e5dd46a6e5f78070594d865}{x\+\_\+scale}
+\item 
+double \hyperlink{struct_shape_aa03f352193dc2f09d41e8ac49230ca83}{y\+\_\+scale}
+\item 
+double \hyperlink{struct_shape_abf9d44d8547f49eefd5a5ebf596cb803}{z\+\_\+scale}
+\item 
+double $\ast$ \hyperlink{struct_shape_a543b882e1acc4b5299df7a74685922db}{args}
+\item 
+int($\ast$ \hyperlink{struct_shape_afbf4b798f73deb289c638d2204faa656}{contains\+\_\+function} )(double $\ast$, \hyperlink{types_8h_a5680245085eb6c3661c1ec194979ccd2}{point3} $\ast$)
+\item 
+\hyperlink{struct_point_cloud}{Point\+Cloud} $\ast$($\ast$ \hyperlink{struct_shape_a41118ddb51e72b975315e29488324787}{point\+\_\+cloud\+\_\+converter} )(int, \hyperlink{types_8h_a3d75ae93fc87c7ef6399af18de18ed4a}{color4}, \hyperlink{types_8h_af8defaae7643cbe46b09ad8dea2eca9b}{mat4}, \hyperlink{types_8h_af8defaae7643cbe46b09ad8dea2eca9b}{mat4}, double, double, double, double $\ast$)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Structure defining a canonical shape. 
+
+Un objet canonique est définit par un type de forme, une couleur, scaling factors, real number arguments (none or several) for parametric shape like torus, a point belonging function, and a conversion function to a point cloud. 
+
+\subsection{Field Documentation}
+\index{Shape@{Shape}!args@{args}}
+\index{args@{args}!Shape@{Shape}}
+\subsubsection[{\texorpdfstring{args}{args}}]{\setlength{\rightskip}{0pt plus 5cm}double$\ast$ args}\hypertarget{struct_shape_a543b882e1acc4b5299df7a74685922db}{}\label{struct_shape_a543b882e1acc4b5299df7a74685922db}
+real arguments (for parametric shapes) \index{Shape@{Shape}!color@{color}}
+\index{color@{color}!Shape@{Shape}}
+\subsubsection[{\texorpdfstring{color}{color}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf color4} color}\hypertarget{struct_shape_a9c2cebcefe8a6bf5fe495236373a6b66}{}\label{struct_shape_a9c2cebcefe8a6bf5fe495236373a6b66}
+Color \index{Shape@{Shape}!contains\+\_\+function@{contains\+\_\+function}}
+\index{contains\+\_\+function@{contains\+\_\+function}!Shape@{Shape}}
+\subsubsection[{\texorpdfstring{contains\+\_\+function}{contains_function}}]{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ contains\+\_\+function) (double $\ast$, {\bf point3} $\ast$)}\hypertarget{struct_shape_afbf4b798f73deb289c638d2204faa656}{}\label{struct_shape_afbf4b798f73deb289c638d2204faa656}
+function pointer on the point belonging function \index{Shape@{Shape}!point\+\_\+cloud\+\_\+converter@{point\+\_\+cloud\+\_\+converter}}
+\index{point\+\_\+cloud\+\_\+converter@{point\+\_\+cloud\+\_\+converter}!Shape@{Shape}}
+\subsubsection[{\texorpdfstring{point\+\_\+cloud\+\_\+converter}{point_cloud_converter}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Point\+Cloud}$\ast$($\ast$ point\+\_\+cloud\+\_\+converter) (int, {\bf color4}, {\bf mat4}, {\bf mat4}, double, double, double, double $\ast$)}\hypertarget{struct_shape_a41118ddb51e72b975315e29488324787}{}\label{struct_shape_a41118ddb51e72b975315e29488324787}
+function pointer on the point cloud conversion function \index{Shape@{Shape}!type@{type}}
+\index{type@{type}!Shape@{Shape}}
+\subsubsection[{\texorpdfstring{type}{type}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Shape\+Type} type}\hypertarget{struct_shape_aa987badbde9a01a186366bf0bb305a4b}{}\label{struct_shape_aa987badbde9a01a186366bf0bb305a4b}
+Canonical shape type \index{Shape@{Shape}!x\+\_\+scale@{x\+\_\+scale}}
+\index{x\+\_\+scale@{x\+\_\+scale}!Shape@{Shape}}
+\subsubsection[{\texorpdfstring{x\+\_\+scale}{x_scale}}]{\setlength{\rightskip}{0pt plus 5cm}double x\+\_\+scale}\hypertarget{struct_shape_a9672a1c41e5dd46a6e5f78070594d865}{}\label{struct_shape_a9672a1c41e5dd46a6e5f78070594d865}
+Scaling factor on {\itshape x} axis \index{Shape@{Shape}!y\+\_\+scale@{y\+\_\+scale}}
+\index{y\+\_\+scale@{y\+\_\+scale}!Shape@{Shape}}
+\subsubsection[{\texorpdfstring{y\+\_\+scale}{y_scale}}]{\setlength{\rightskip}{0pt plus 5cm}double y\+\_\+scale}\hypertarget{struct_shape_aa03f352193dc2f09d41e8ac49230ca83}{}\label{struct_shape_aa03f352193dc2f09d41e8ac49230ca83}
+Scaling factor on {\itshape y} axis \index{Shape@{Shape}!z\+\_\+scale@{z\+\_\+scale}}
+\index{z\+\_\+scale@{z\+\_\+scale}!Shape@{Shape}}
+\subsubsection[{\texorpdfstring{z\+\_\+scale}{z_scale}}]{\setlength{\rightskip}{0pt plus 5cm}double z\+\_\+scale}\hypertarget{struct_shape_abf9d44d8547f49eefd5a5ebf596cb803}{}\label{struct_shape_abf9d44d8547f49eefd5a5ebf596cb803}
+Scaling factor on {\itshape z} axis 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{shape_8h}{shape.\+h}\end{DoxyCompactItemize}

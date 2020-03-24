@@ -1,0 +1,346 @@
+\hypertarget{shape_8h}{}\section{include/shape.h File Reference}
+\label{shape_8h}\index{include/shape.\+h@{include/shape.\+h}}
+
+
+Canonical shapes management module.  
+
+
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}point\+\_\+cloud.\+h\char`\"{}}\\*
+Include dependency graph for shape.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{shape_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{shape_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_shape}{Shape}
+\begin{DoxyCompactList}\small\item\em Structure defining a canonical shape. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{shape_8h_a5a4538eeab397888d88a4eefcc5a1345}{Shape\+Type} \{ \\*
+\hyperlink{shape_8h_a5a4538eeab397888d88a4eefcc5a1345a3b4c5831cd0a4399644876494915540a}{Sphere}, 
+\hyperlink{shape_8h_a5a4538eeab397888d88a4eefcc5a1345a9a0ac0e1bcb1e95a77ef54d9f6658337}{Cube}, 
+\hyperlink{shape_8h_a5a4538eeab397888d88a4eefcc5a1345ad35bd028b7dd1821600a81852499e66e}{Cylinder}, 
+\hyperlink{shape_8h_a5a4538eeab397888d88a4eefcc5a1345a6bf79fd4474dc6d32585a80411b9e30e}{Cone}, 
+\\*
+\hyperlink{shape_8h_a5a4538eeab397888d88a4eefcc5a1345abab368199df5c1742ff025831e085ea2}{Torus}, 
+\hyperlink{shape_8h_a5a4538eeab397888d88a4eefcc5a1345a136b0b9b9a840b2bfbfeb3da97d6895c}{Number\+Shape\+Type}
+ \}\begin{DoxyCompactList}\small\item\em Enumeration of the different types of canonical shapes available. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_point_cloud}{Point\+Cloud} $\ast$ \hyperlink{shape_8h_a1561f8b563792a2b4b4ffa4c00b14782}{shape\+\_\+to\+\_\+point\+\_\+cloud} (const \hyperlink{struct_shape}{Shape} $\ast$shape, int density, \hyperlink{types_8h_af8defaae7643cbe46b09ad8dea2eca9b}{mat4} transformations, \hyperlink{types_8h_af8defaae7643cbe46b09ad8dea2eca9b}{mat4} norm\+\_\+transformations)
+\begin{DoxyCompactList}\small\item\em Convert a canonical shape to a point cloud. \end{DoxyCompactList}\item 
+\hyperlink{struct_shape}{Shape} $\ast$ \hyperlink{shape_8h_a8ddd9b9df081a8826e95f4c21812b358}{shape\+\_\+cone} (\hyperlink{types_8h_a3d75ae93fc87c7ef6399af18de18ed4a}{color4} color)
+\begin{DoxyCompactList}\small\item\em Allocate a canonical cone. \end{DoxyCompactList}\item 
+\hyperlink{struct_shape}{Shape} $\ast$ \hyperlink{shape_8h_a544e890bea51d0c03dd15bc9ef7ef53c}{shape\+\_\+cube} (\hyperlink{types_8h_a3d75ae93fc87c7ef6399af18de18ed4a}{color4} color)
+\begin{DoxyCompactList}\small\item\em Allocate a canonical cube. \end{DoxyCompactList}\item 
+int \hyperlink{shape_8h_ad41d41c7f11e39bc118b2fb68d33a4e3}{shape\+\_\+contains\+\_\+point} (const \hyperlink{struct_shape}{Shape} $\ast$shape, const \hyperlink{types_8h_a5680245085eb6c3661c1ec194979ccd2}{point3} $\ast$point)
+\begin{DoxyCompactList}\small\item\em Test if a point belongs to a canonical shape. \end{DoxyCompactList}\item 
+\hyperlink{struct_shape}{Shape} $\ast$ \hyperlink{shape_8h_ad6897ba7aad8581b826054866fc8392e}{shape\+\_\+cylinder} (\hyperlink{types_8h_a3d75ae93fc87c7ef6399af18de18ed4a}{color4} color)
+\begin{DoxyCompactList}\small\item\em Allocate a canonical cylinder. \end{DoxyCompactList}\item 
+void \hyperlink{shape_8h_a0523f8c3f6929bf27c9f9a5158fdd926}{shape\+\_\+free} (\hyperlink{struct_shape}{Shape} $\ast$$\ast$shape)
+\begin{DoxyCompactList}\small\item\em Free the memory allocated by a canonical shape. \end{DoxyCompactList}\item 
+int \hyperlink{shape_8h_a75610191099f8f54de836b5492a6a159}{shape\+\_\+is\+\_\+valid} (const \hyperlink{struct_shape}{Shape} $\ast$shape)
+\begin{DoxyCompactList}\small\item\em Test if a canonical shape datastructure is valid. \end{DoxyCompactList}\item 
+void \hyperlink{shape_8h_a5977cbf2428b20d5b20d9b9a78067b44}{shape\+\_\+rescale} (\hyperlink{struct_shape}{Shape} $\ast$shape, double x, double y, double z)
+\begin{DoxyCompactList}\small\item\em Perform a scaling on a canonical shape. \end{DoxyCompactList}\item 
+\hyperlink{struct_shape}{Shape} $\ast$ \hyperlink{shape_8h_a2bcca475ad0946dbee15d87acd8425ad}{shape\+\_\+sphere} (\hyperlink{types_8h_a3d75ae93fc87c7ef6399af18de18ed4a}{color4} color)
+\begin{DoxyCompactList}\small\item\em Allocate a canonical sphere. \end{DoxyCompactList}\item 
+\hyperlink{struct_shape}{Shape} $\ast$ \hyperlink{shape_8h_add89074e3ba5f35e8fd2161f441aea70}{shape\+\_\+torus} (\hyperlink{types_8h_a3d75ae93fc87c7ef6399af18de18ed4a}{color4} color, double radius)
+\begin{DoxyCompactList}\small\item\em Allocate a canonical torus. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Canonical shapes management module. 
+
+
+
+\subsection{Enumeration Type Documentation}
+\index{shape.\+h@{shape.\+h}!Shape\+Type@{Shape\+Type}}
+\index{Shape\+Type@{Shape\+Type}!shape.\+h@{shape.\+h}}
+\subsubsection[{\texorpdfstring{Shape\+Type}{ShapeType}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Shape\+Type}}\hypertarget{shape_8h_a5a4538eeab397888d88a4eefcc5a1345}{}\label{shape_8h_a5a4538eeab397888d88a4eefcc5a1345}
+
+
+Enumeration of the different types of canonical shapes available. 
+
+This information is not essential but can be useful to make statistics on the C\+SG tree, like for example to count the number of cube in the scene. \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Sphere@{Sphere}!shape.\+h@{shape.\+h}}\index{shape.\+h@{shape.\+h}!Sphere@{Sphere}}\item[{\em 
+Sphere\hypertarget{shape_8h_a5a4538eeab397888d88a4eefcc5a1345a3b4c5831cd0a4399644876494915540a}{}\label{shape_8h_a5a4538eeab397888d88a4eefcc5a1345a3b4c5831cd0a4399644876494915540a}
+}]Canonical sphere \index{Cube@{Cube}!shape.\+h@{shape.\+h}}\index{shape.\+h@{shape.\+h}!Cube@{Cube}}\item[{\em 
+Cube\hypertarget{shape_8h_a5a4538eeab397888d88a4eefcc5a1345a9a0ac0e1bcb1e95a77ef54d9f6658337}{}\label{shape_8h_a5a4538eeab397888d88a4eefcc5a1345a9a0ac0e1bcb1e95a77ef54d9f6658337}
+}]Canonical cube \index{Cylinder@{Cylinder}!shape.\+h@{shape.\+h}}\index{shape.\+h@{shape.\+h}!Cylinder@{Cylinder}}\item[{\em 
+Cylinder\hypertarget{shape_8h_a5a4538eeab397888d88a4eefcc5a1345ad35bd028b7dd1821600a81852499e66e}{}\label{shape_8h_a5a4538eeab397888d88a4eefcc5a1345ad35bd028b7dd1821600a81852499e66e}
+}]Canonical cylinder \index{Cone@{Cone}!shape.\+h@{shape.\+h}}\index{shape.\+h@{shape.\+h}!Cone@{Cone}}\item[{\em 
+Cone\hypertarget{shape_8h_a5a4538eeab397888d88a4eefcc5a1345a6bf79fd4474dc6d32585a80411b9e30e}{}\label{shape_8h_a5a4538eeab397888d88a4eefcc5a1345a6bf79fd4474dc6d32585a80411b9e30e}
+}]Canonical cone \index{Torus@{Torus}!shape.\+h@{shape.\+h}}\index{shape.\+h@{shape.\+h}!Torus@{Torus}}\item[{\em 
+Torus\hypertarget{shape_8h_a5a4538eeab397888d88a4eefcc5a1345abab368199df5c1742ff025831e085ea2}{}\label{shape_8h_a5a4538eeab397888d88a4eefcc5a1345abab368199df5c1742ff025831e085ea2}
+}]Canonical torus \index{Number\+Shape\+Type@{Number\+Shape\+Type}!shape.\+h@{shape.\+h}}\index{shape.\+h@{shape.\+h}!Number\+Shape\+Type@{Number\+Shape\+Type}}\item[{\em 
+Number\+Shape\+Type\hypertarget{shape_8h_a5a4538eeab397888d88a4eefcc5a1345a136b0b9b9a840b2bfbfeb3da97d6895c}{}\label{shape_8h_a5a4538eeab397888d88a4eefcc5a1345a136b0b9b9a840b2bfbfeb3da97d6895c}
+}]Number of types of canonical shapes \end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{shape.\+h@{shape.\+h}!shape\+\_\+cone@{shape\+\_\+cone}}
+\index{shape\+\_\+cone@{shape\+\_\+cone}!shape.\+h@{shape.\+h}}
+\subsubsection[{\texorpdfstring{shape\+\_\+cone(color4 color)}{shape_cone(color4 color)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Shape}$\ast$ shape\+\_\+cone (
+\begin{DoxyParamCaption}
+\item[{{\bf color4}}]{color}
+\end{DoxyParamCaption}
+)}\hypertarget{shape_8h_a8ddd9b9df081a8826e95f4c21812b358}{}\label{shape_8h_a8ddd9b9df081a8826e95f4c21812b358}
+
+
+Allocate a canonical cone. 
+
+The program stops if the allocation has failed. This function allocate some memory that need to be freed with {\itshape shape\+\_\+free}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Color of the canonical cone\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the allocated canonical cone 
+\end{DoxyReturn}
+\index{shape.\+h@{shape.\+h}!shape\+\_\+contains\+\_\+point@{shape\+\_\+contains\+\_\+point}}
+\index{shape\+\_\+contains\+\_\+point@{shape\+\_\+contains\+\_\+point}!shape.\+h@{shape.\+h}}
+\subsubsection[{\texorpdfstring{shape\+\_\+contains\+\_\+point(const Shape $\ast$shape, const point3 $\ast$point)}{shape_contains_point(const Shape *shape, const point3 *point)}}]{\setlength{\rightskip}{0pt plus 5cm}int shape\+\_\+contains\+\_\+point (
+\begin{DoxyParamCaption}
+\item[{const {\bf Shape} $\ast$}]{shape, }
+\item[{const {\bf point3} $\ast$}]{point}
+\end{DoxyParamCaption}
+)}\hypertarget{shape_8h_ad41d41c7f11e39bc118b2fb68d33a4e3}{}\label{shape_8h_ad41d41c7f11e39bc118b2fb68d33a4e3}
+
+
+Test if a point belongs to a canonical shape. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape} & Canonical shape to test ~\newline
+Can not take the value {\itshape N\+U\+LL} ~\newline
+Must be a valid canonical shape\\
+\hline
+{\em point} & Point à tester ~\newline
+Can not take the value {\itshape N\+U\+LL} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\itshape 1} if the point belongs to the canonical shape, {\itshape 0} otherwise 
+\end{DoxyReturn}
+\index{shape.\+h@{shape.\+h}!shape\+\_\+cube@{shape\+\_\+cube}}
+\index{shape\+\_\+cube@{shape\+\_\+cube}!shape.\+h@{shape.\+h}}
+\subsubsection[{\texorpdfstring{shape\+\_\+cube(color4 color)}{shape_cube(color4 color)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Shape}$\ast$ shape\+\_\+cube (
+\begin{DoxyParamCaption}
+\item[{{\bf color4}}]{color}
+\end{DoxyParamCaption}
+)}\hypertarget{shape_8h_a544e890bea51d0c03dd15bc9ef7ef53c}{}\label{shape_8h_a544e890bea51d0c03dd15bc9ef7ef53c}
+
+
+Allocate a canonical cube. 
+
+The program stops if the allocation has failed. This function allocate some memory that need to be freed with {\itshape shape\+\_\+free}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Color of the canonical cube\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the allocated canonical cube 
+\end{DoxyReturn}
+\index{shape.\+h@{shape.\+h}!shape\+\_\+cylinder@{shape\+\_\+cylinder}}
+\index{shape\+\_\+cylinder@{shape\+\_\+cylinder}!shape.\+h@{shape.\+h}}
+\subsubsection[{\texorpdfstring{shape\+\_\+cylinder(color4 color)}{shape_cylinder(color4 color)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Shape}$\ast$ shape\+\_\+cylinder (
+\begin{DoxyParamCaption}
+\item[{{\bf color4}}]{color}
+\end{DoxyParamCaption}
+)}\hypertarget{shape_8h_ad6897ba7aad8581b826054866fc8392e}{}\label{shape_8h_ad6897ba7aad8581b826054866fc8392e}
+
+
+Allocate a canonical cylinder. 
+
+The program stops if the allocation has failed. This function allocate some memory that need to be freed with {\itshape shape\+\_\+free}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Color of the canonical cylinder\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the allocated canonical cylinder 
+\end{DoxyReturn}
+\index{shape.\+h@{shape.\+h}!shape\+\_\+free@{shape\+\_\+free}}
+\index{shape\+\_\+free@{shape\+\_\+free}!shape.\+h@{shape.\+h}}
+\subsubsection[{\texorpdfstring{shape\+\_\+free(\+Shape $\ast$$\ast$shape)}{shape_free(Shape **shape)}}]{\setlength{\rightskip}{0pt plus 5cm}void shape\+\_\+free (
+\begin{DoxyParamCaption}
+\item[{{\bf Shape} $\ast$$\ast$}]{shape}
+\end{DoxyParamCaption}
+)}\hypertarget{shape_8h_a0523f8c3f6929bf27c9f9a5158fdd926}{}\label{shape_8h_a0523f8c3f6929bf27c9f9a5158fdd926}
+
+
+Free the memory allocated by a canonical shape. 
+
+The pointed canonical shape will be set to {\itshape N\+U\+LL}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape} & Pointer to the canonical shape to free ~\newline
+Can not take the value {\itshape N\+U\+LL} ~\newline
+Must be a valid canonical shape \\
+\hline
+\end{DoxyParams}
+\index{shape.\+h@{shape.\+h}!shape\+\_\+is\+\_\+valid@{shape\+\_\+is\+\_\+valid}}
+\index{shape\+\_\+is\+\_\+valid@{shape\+\_\+is\+\_\+valid}!shape.\+h@{shape.\+h}}
+\subsubsection[{\texorpdfstring{shape\+\_\+is\+\_\+valid(const Shape $\ast$shape)}{shape_is_valid(const Shape *shape)}}]{\setlength{\rightskip}{0pt plus 5cm}int shape\+\_\+is\+\_\+valid (
+\begin{DoxyParamCaption}
+\item[{const {\bf Shape} $\ast$}]{shape}
+\end{DoxyParamCaption}
+)}\hypertarget{shape_8h_a75610191099f8f54de836b5492a6a159}{}\label{shape_8h_a75610191099f8f54de836b5492a6a159}
+
+
+Test if a canonical shape datastructure is valid. 
+
+A canonical shape is valid if \+: ~\newline
+
+\begin{DoxyItemize}
+\item {\bfseries type} is between {\itshape 0} and {\itshape Number\+Shape\+Type-\/1} ~\newline
+
+\item {\bfseries contains\+\_\+function} is different from {\itshape N\+U\+LL} ~\newline
+
+\item {\bfseries point\+\_\+cloud\+\_\+converter} is different from {\itshape N\+U\+LL} ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em shape} & Pointer to the canonical shape to test ~\newline
+Can not take the value {\itshape N\+U\+LL} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+{\itshape 1} if the canonical shape is valid, {\itshape 0} otherwise 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\index{shape.\+h@{shape.\+h}!shape\+\_\+rescale@{shape\+\_\+rescale}}
+\index{shape\+\_\+rescale@{shape\+\_\+rescale}!shape.\+h@{shape.\+h}}
+\subsubsection[{\texorpdfstring{shape\+\_\+rescale(\+Shape $\ast$shape, double x, double y, double z)}{shape_rescale(Shape *shape, double x, double y, double z)}}]{\setlength{\rightskip}{0pt plus 5cm}void shape\+\_\+rescale (
+\begin{DoxyParamCaption}
+\item[{{\bf Shape} $\ast$}]{shape, }
+\item[{double}]{x, }
+\item[{double}]{y, }
+\item[{double}]{z}
+\end{DoxyParamCaption}
+)}\hypertarget{shape_8h_a5977cbf2428b20d5b20d9b9a78067b44}{}\label{shape_8h_a5977cbf2428b20d5b20d9b9a78067b44}
+
+
+Perform a scaling on a canonical shape. 
+
+This function is important to estimate the volume of a canonical shape for the conversion to point cloud. If on a canonical object we do two scaling on an axis, the scale factor will correspond to the product of the two factors.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape} & Canonical shape to scale ~\newline
+Can not take the value {\itshape N\+U\+LL} ~\newline
+Must be a valid canonical shape\\
+\hline
+{\em x} & Scaling factor on {\itshape x} axis ~\newline
+Must be strictly positive\\
+\hline
+{\em y} & Scaling factor on {\itshape y} axis ~\newline
+Must be strictly positive\\
+\hline
+{\em z} & Scaling factor on {\itshape z} axis ~\newline
+Must be strictly positive \\
+\hline
+\end{DoxyParams}
+\index{shape.\+h@{shape.\+h}!shape\+\_\+sphere@{shape\+\_\+sphere}}
+\index{shape\+\_\+sphere@{shape\+\_\+sphere}!shape.\+h@{shape.\+h}}
+\subsubsection[{\texorpdfstring{shape\+\_\+sphere(color4 color)}{shape_sphere(color4 color)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Shape}$\ast$ shape\+\_\+sphere (
+\begin{DoxyParamCaption}
+\item[{{\bf color4}}]{color}
+\end{DoxyParamCaption}
+)}\hypertarget{shape_8h_a2bcca475ad0946dbee15d87acd8425ad}{}\label{shape_8h_a2bcca475ad0946dbee15d87acd8425ad}
+
+
+Allocate a canonical sphere. 
+
+The program stops if the allocation has failed. This function allocate some memory that need to be freed with {\itshape shape\+\_\+free}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Color of the canonical sphere\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the allocated canonical sphere 
+\end{DoxyReturn}
+\index{shape.\+h@{shape.\+h}!shape\+\_\+to\+\_\+point\+\_\+cloud@{shape\+\_\+to\+\_\+point\+\_\+cloud}}
+\index{shape\+\_\+to\+\_\+point\+\_\+cloud@{shape\+\_\+to\+\_\+point\+\_\+cloud}!shape.\+h@{shape.\+h}}
+\subsubsection[{\texorpdfstring{shape\+\_\+to\+\_\+point\+\_\+cloud(const Shape $\ast$shape, int density, mat4 transformations, mat4 norm\+\_\+transformations)}{shape_to_point_cloud(const Shape *shape, int density, mat4 transformations, mat4 norm_transformations)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Point\+Cloud}$\ast$ shape\+\_\+to\+\_\+point\+\_\+cloud (
+\begin{DoxyParamCaption}
+\item[{const {\bf Shape} $\ast$}]{shape, }
+\item[{int}]{density, }
+\item[{{\bf mat4}}]{transformations, }
+\item[{{\bf mat4}}]{norm\+\_\+transformations}
+\end{DoxyParamCaption}
+)}\hypertarget{shape_8h_a1561f8b563792a2b4b4ffa4c00b14782}{}\label{shape_8h_a1561f8b563792a2b4b4ffa4c00b14782}
+
+
+Convert a canonical shape to a point cloud. 
+
+This function is necessary in order to be able to the render a canonical shape. This function allocate some memory that need to be freed with {\itshape point\+\_\+cloud\+\_\+free}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em shape} & Canonical shape to convert ~\newline
+Can not take the value {\itshape N\+U\+LL} ~\newline
+Must be a valid canonical shape\\
+\hline
+{\em density} & Point density per unit area ~\newline
+Must be strictly positive\\
+\hline
+{\em transformations} & Points transformation matrix\\
+\hline
+{\em norm\+\_\+transformations} & Normals transformation matrix\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the allocated point cloud 
+\end{DoxyReturn}
+\index{shape.\+h@{shape.\+h}!shape\+\_\+torus@{shape\+\_\+torus}}
+\index{shape\+\_\+torus@{shape\+\_\+torus}!shape.\+h@{shape.\+h}}
+\subsubsection[{\texorpdfstring{shape\+\_\+torus(color4 color, double radius)}{shape_torus(color4 color, double radius)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Shape}$\ast$ shape\+\_\+torus (
+\begin{DoxyParamCaption}
+\item[{{\bf color4}}]{color, }
+\item[{double}]{radius}
+\end{DoxyParamCaption}
+)}\hypertarget{shape_8h_add89074e3ba5f35e8fd2161f441aea70}{}\label{shape_8h_add89074e3ba5f35e8fd2161f441aea70}
+
+
+Allocate a canonical torus. 
+
+The program stops if the allocation has failed. This function allocate some memory that need to be freed with {\itshape shape\+\_\+free}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & Color of the canonical torus\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the allocated canonical torus 
+\end{DoxyReturn}
