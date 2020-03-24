@@ -92,6 +92,30 @@ This implies that, when we want to test if a point belongs to a CSG tree with a 
 
 This special case have not been implemented.
 
+## Parser
+
+The project has a scene parser to allow the users to create their own scenes without having to recompile the project.
+The user just have to create a scene file (format detailed below) and run the program on his file.
+Some scenes examples are already available in directory **scenes/**
+
+### File format
+
+A scene file describe the structure of the CSG tree where each line describe a node (leaf or internal node) and the order of the lines is the result of a depth-first search on the CSG tree.
+A line have to follow this format :
+- For a leaf : `shape (r, g, b, a) (tx, ty, tz) (rx, ry, rz) (hx, hy, hz)`
+	with :
+	- `shape` is the canonical form, can take `sphere`, `cube`, `cylinder`, `cone` or `torus radius` (note that `radius` is a real argument for `torus` that correspond to the internal radius)
+	- `(r, g, b, a)` is the color of the canonical object
+	- `(tx, tx, tz)` is the translation vector
+	- `(rx, ry, rz)` is the rotation angles
+	- `(hx, hy, hz)` is the scaling factors
+- For an internal node : `operator (tx, ty, tz) (rx, ry, rz) (hx, hy, hz)`
+	with :
+	- `operator` is the geometric operator, can take `+`, `*`, `-` or `=`, corresponding respectively to union, intersection, difference and identity
+	- `(tx, tx, tz)` is the translation vector
+	- `(rx, ry, rz)` is the rotation angles
+	- `(hx, hy, hz)` is the scaling factors
+
 ## Usage
 
 * Compilation : `make`
