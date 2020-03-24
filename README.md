@@ -86,8 +86,10 @@ Here a result of a CSG tree inspired from [Wikipedia example](https://en.wikiped
 
 ### Difference composition problem
 
-TODO problem when we the right operand of a difference is a difference 
-
+The recursive implementation can leads to errors in rendering when we want to compose the difference operator (difference of two subtrees when the right subtree is itself a difference). 
+The idea would be that if we make a difference between two sub-trees `L` and `R` with `R` also a difference between two subtrees `L'` and `E'`, we want to remove only the points of `L'` and keep those from `L` and `R'` in the final point cloud.
+This implies that, when we want to test if a point belongs to a CSG tree with a difference operator at the root, we have to process differently the case where the right subtree is a difference from any other case.
+This special case have not been implemented.
 
 ## Usage
 
